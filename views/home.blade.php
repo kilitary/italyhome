@@ -39,7 +39,9 @@
             <form class="section-main__search">
                 <input type="text" id="addr" class="section-main__input search-input"
                        placeholder="Введите адрес доставки ">
-                <button type="submit" class="section-main__button search-button" onclick="doSearch('Россия, Санкт-Петербург '+$('#addr').val())">Проверить адрес</button>
+                <button type="submit" class="section-main__button search-button"
+                        onclick="doSearch('Россия, Санкт-Петербург '+$('#addr').val())">Проверить адрес
+                </button>
             </form>
         </section>
         <section class="section-zone">
@@ -52,7 +54,9 @@
                     Так же вкусно как в Italy, только дома.
                 </div>
             </div>
-            <div id="map" style="width:50%;height:90%"></div>
+            <div class="section-zone__image">
+                <img src="/assets/img/map.jpg" alt="map">
+            </div>
         </section>
         <section class="section-cooking">
             <div class="section-cooking__container">
