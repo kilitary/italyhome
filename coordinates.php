@@ -239,8 +239,8 @@ $coordinates = [
         ]
     ],
     [
-        'cost' => 0,
         'url' => 'http://engelsa.italydomoy.ru',
+        'cost' => 0,
         'min_sum' => 0,
         'name' => 'Энгельса',
         'color' => '#fBff00',

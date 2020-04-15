@@ -66,7 +66,9 @@ function doSearch(value) {
                 $('#href-rest').remove();
                 $('#dialog-confirm').show();
             } else {
-                $('#a_div').append('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
+                if(typeof $('#href-rest').html() == 'undefined') {
+                    $('#a_div').html('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
+                }
                 $('#dialog-confirm').show();
                 restaurantUrl = data.url;
 
