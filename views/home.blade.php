@@ -56,6 +56,7 @@
             </div>
             <div class="section-zone__image">
                 <img src="/assets/img/map.jpg" alt="map">
+                <div id="map" style="width:1px;height:1px"></div>
             </div>
         </section>
         <section class="section-cooking">
