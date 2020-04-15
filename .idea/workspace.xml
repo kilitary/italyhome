@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9c41f8c9-fe69-4c3e-ad44-e8dce7c31e17" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/auto/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/auto/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/auto/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/auto/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/auto/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/auto/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/auto/vendor/illuminate/filesystem" />
+      <path value="$PROJECT_DIR$/auto/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/auto/vendor/illuminate/view" />
+      <path value="$PROJECT_DIR$/auto/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/auto/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/auto/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/auto/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/auto/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/auto/vendor/jenssegers/blade" />
+      <path value="$PROJECT_DIR$/auto/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/auto/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/auto/vendor/composer" />
+      <path value="$PROJECT_DIR$/auto/vendor/larapack/dd" />
+      <path value="$PROJECT_DIR$/auto/vendor/nesbot/carbon" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1aa5qigtn46BLXVxO1TWMge6G4B" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs.mocha.mocha_node_package_dir" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.grunt">
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c41f8c9-fe69-4c3e-ad44-e8dce7c31e17" name="Default Changelist" comment="" />
+      <created>1586961056996</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586961056996</updated>
+      <workItem from="1586961058375" duration="1287000" />
+      <workItem from="1586963909958" duration="220000" />
+      <workItem from="1586964155516" duration="2368000" />
+      <workItem from="1586966942330" duration="107000" />
+      <workItem from="1586967262249" duration="847000" />
+      <workItem from="1586968499039" duration="2158000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="597" y="204" key="#Composer" timestamp="1586961074691">
+      <screen x="83" y="0" width="1837" height="1080" />
+    </state>
+    <state x="597" y="204" key="#Composer/-1837.0.1837.1080/1920.0.1920.1080/83.0.1837.1080@83.0.1837.1080" timestamp="1586961074691" />
+    <state x="461" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586970195796">
+      <screen x="83" y="0" width="1837" height="1080" />
+    </state>
+    <state x="461" y="201" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1837.0.1837.1080/1920.0.1920.1080/83.0.1837.1080@83.0.1837.1080" timestamp="1586970195796" />
+    <state x="508" y="188" key="SettingsEditor" timestamp="1586969029391">
+      <screen x="83" y="0" width="1837" height="1080" />
+    </state>
+    <state x="508" y="188" key="SettingsEditor/-1837.0.1837.1080/1920.0.1920.1080/83.0.1837.1080@83.0.1837.1080" timestamp="1586969029391" />
+    <state x="689" y="303" width="625" height="474" key="find.popup" timestamp="1586969264508">
+      <screen x="83" y="0" width="1837" height="1080" />
+    </state>
+    <state x="689" y="303" width="625" height="474" key="find.popup/-1837.0.1837.1080/1920.0.1920.1080/83.0.1837.1080@83.0.1837.1080" timestamp="1586969264508" />
+  </component>
+</project>
