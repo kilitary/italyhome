@@ -85,6 +85,7 @@ $(function() {
 	var val = $addr.val();
 
 	$addr.autocomplete({
+		appendTo: ".section-main__search",
 		minLength: 2,
 		select: function(event, ui) {
 			doSearch(ui.item.value);

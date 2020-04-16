@@ -382,3 +382,30 @@ body {
     width: 93px;
   }
 }
+
+.ui-autocomplete {
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  transform: translateY(60px);
+  border: 1px solid #d9d9de;
+  border-radius: 20px;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.ui-menu-item-wrapper {
+  width: 100%;
+  padding: 15px !important;
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  box-sizing: border-box;
+}
+.ui-menu-item-wrapper.ui-state-active {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: #f21200;
+}

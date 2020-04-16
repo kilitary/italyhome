@@ -3,7 +3,7 @@ require('coordinates.php');
 require('geo.php');
 
 switch(@$_GET['action']) {
-    case 'maps':
+    case 'maps': 
         echo json_encode($coordinates);
         break;
     case 'calc':
@@ -17,23 +17,23 @@ switch(@$_GET['action']) {
                 $data['url'] = $c['url'];
 
                 if(isset($c['name'])) {
-                    $msg = 'Ваш заказ будет доставлен из ресторана на ' . $c['name'];
+                    $msg = 'Ваш заказ будет доставлен из ресторана на ' . $c['name'] . ' ';
                 } else {
                     $msg = '';
                 }
 
                 if($c['cost'] > 0) {
-                    $msg .= '.Доставка ' . $c['cost'];
+                    $msg .= '. Доставка ' . $c['cost'];
                 } elseif($c['cost'] == 0) {
-                    $msg .= '.Доставка бесплатная';
+                    $msg .= '. Доставка бесплатная ';
                 }
-                
+
                 if($c['min_sum'] > 0) {
-                    $msg .= '.Минимальная сумма заказа ' . $c['min_sum'];
+                    $msg .= '. Минимальная сумма заказа ' . $c['min_sum'];
                 }
 
                 if($c['tel']) {
-                    $msg .= 'Заказ можете сделать по телефону ' . $c['tel'];
+                    $msg .= '. Заказ можете сделать по телефону ' . $c['tel'];
                 }
 
                 $data['msg'] = $msg . '<br/><br/>';
