@@ -33,7 +33,7 @@
             <h2 class="section-main__title">Проверьте возможность <br> доставки по вашему адресу</h2>
             <form class="section-main__search">
                 <input type="text" id="addr" class="section-main__input search-input" placeholder="Введите адрес доставки ">
-                <button type="submit" class="section-main__button search-button" onclick="doSearch('Россия, Санкт-Петербург '+$('#addr').val())">Проверить адрес
+                <button type="submit" class="section-main__button search-button" onclick="searchButton()">Проверить адрес
                 </button>
             </form>
         </section>

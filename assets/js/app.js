@@ -11,8 +11,6 @@ function init() {
 		zones = JSON.parse(zones);
 		var regionsNumber = 0;
 		$.each(zones, $.proxy(function(i, el) {
-			// Reverse coordinates
-			console.log('do ' + el.name);
 			$.each(el.coords, $.proxy(function(j, region) {
 				var r = region[0];
 				region[0] = region[1];
@@ -44,6 +42,12 @@ function init() {
 function gotoRestaurant() {
 	$('#dialog-confirm').hide();
 	document.location.href = restaurantUrl;
+}
+
+function searchButton(e) {
+	var e = window.event;
+	e.preventDefault();
+	doSearch('Санкт-петербург, ' + $('#addr').val());
 }
 
 function doSearch(value) {
