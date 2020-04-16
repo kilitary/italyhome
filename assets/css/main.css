@@ -403,7 +403,7 @@ body {
   align-items: center;
   box-sizing: border-box;
 }
-.ui-menu-item-wrapper.ui-state-active {
+.ui-menu-item-wrapper .ui-state-active {
   border: 1px solid transparent;
   background-color: transparent;
   color: #f21200;
