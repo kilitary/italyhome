@@ -36,6 +36,9 @@ switch(@$_GET['action']) {
                     $msg .= '. <br/>Заказ можете сделать по телефону <a href="tel:' . $c['tel'] . '">' . $c['tel'] . '</a>';
                 }
 
+                if(isset($c['menu'])) {
+                    $data['menu'] = $c['menu'];
+                }
                 $data['msg'] = $msg . '<br/><br/>';
 
                 echo json_encode($data);

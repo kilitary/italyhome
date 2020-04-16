@@ -58,12 +58,21 @@ function doSearch(value) {
 
 			if(data.msg.indexOf('550') !== -1) {
 				restaurantUrl = '';
-				$('#href-rest').remove();
+
+				if(typeof data.menu != 'undefined') {
+					$('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
+				} else {
+					$('#href-rest').remove();
+				}
 				$('#dialog-confirm').css('display', 'flex');
 			} else {
 				restaurantUrl = data.url;
 				if(typeof $('#href-rest').html() == 'undefined') {
-					$('#a_div').html('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
+					if(typeof data.menu === 'undefined') {
+						$('#a_div').html('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
+					} else {
+						$('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
+					}
 				}
 				$('#dialog-confirm').css('display', 'flex');
 
@@ -85,7 +94,7 @@ $(function() {
 	var val = $addr.val();
 
 	$addr.autocomplete({
-		appendTo: ".section-main__search",
+		appendTo: '.section-main__search',
 		minLength: 2,
 		select: function(event, ui) {
 			doSearch(ui.item.value);
