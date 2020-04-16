@@ -30,7 +30,7 @@ switch(@$_GET['action']) {
                 if($c['min_sum'] > 0) {
                     $msg .= '.Минимальная сумма заказа ' . $c['min_sum'];
                 }
-                $data['msg'] = $msg;
+                $data['msg'] = $msg . '<br/><br/>';
                 echo json_encode($data);
                 exit;
             }
@@ -42,6 +42,6 @@ switch(@$_GET['action']) {
         exit;
         break;
     default:
-        echo file_get_contents('views/home.blade.php');
+        echo file_get_contents('views/home.php');
         break;
 }
