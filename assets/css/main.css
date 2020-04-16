@@ -217,3 +217,10 @@ body {
   left: 0;
   background: rgba(0,0,0,0.5);
 }
+.ui-menu {
+  list-style: none;
+  display: block;
+  outline: 0;
+  margin-left: 100px;
+  max-width: 650px;
+}

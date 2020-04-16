@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italydomoy</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -17,7 +15,8 @@
         src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
-    <LINK href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css">
+    <LINK href="/assets/css/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/app.js"></script>
 </head>
 <body>
@@ -32,10 +31,7 @@
     </header>
     <main>
         <section class="section-main">
-
             <h2 class="section-main__title">Проверьте возможность <br> доставки по вашему адресу</h2>
-
-
             <form class="section-main__search">
                 <input type="text" id="addr" class="section-main__input search-input"
                        placeholder="Введите адрес доставки ">
@@ -56,7 +52,7 @@
             </div>
             <div class="section-zone__image">
                 <img src="/assets/img/map.jpg" alt="map">
-                <div id="map" style="width:1px;height:1px"></div>
+                <div id="map" style="width:0px;height:0px"></div>
             </div>
         </section>
         <section class="section-cooking">
