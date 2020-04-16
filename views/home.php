@@ -11,8 +11,7 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=7cedbefe-b532-46c0-bd05-3abdf86c0948&lang=ru_RU"
             type="text/javascript">
     </script>
-    <script
-        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    <script        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
         integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
     <LINK href="/assets/css/jquery-ui.css" rel="stylesheet" type="text/css">
@@ -33,10 +32,8 @@
         <section class="section-main">
             <h2 class="section-main__title">Проверьте возможность <br> доставки по вашему адресу</h2>
             <form class="section-main__search">
-                <input type="text" id="addr" class="section-main__input search-input"
-                       placeholder="Введите адрес доставки ">
-                <button type="submit" class="section-main__button search-button"
-                        onclick="doSearch('Россия, Санкт-Петербург '+$('#addr').val())">Проверить адрес
+                <input type="text" id="addr" class="section-main__input search-input" placeholder="Введите адрес доставки ">
+                <button type="submit" class="section-main__button search-button" onclick="doSearch('Россия, Санкт-Петербург '+$('#addr').val())">Проверить адрес
                 </button>
             </form>
         </section>
@@ -44,7 +41,7 @@
             <div class="section-zone__text-block">
                 <h2 class="section-zone__title">Зоны доставки из ресторанов Italy</h2>
                 <div class="section-zone__text">
-                    Italy домой - доставка еды из ресторанов Italy в Санкт-Петербурге и Москве.
+                    Italy домой - доставка еды из ресторанов Italy в Санкт-Петербурге.
                     Традиционная итальянская пицца, домашняя паста, свежие салаты, ароматные супы и разнообразие горячих
                     блюд.
                     Так же вкусно как в Italy, только дома.
@@ -84,14 +81,14 @@
             <div class="footer__social">
                 <h4 class="footer__heading mobile-none">Следите за нами</h4>
                 <div class="footer__social-items">
-                    <a href="#" class="footer__social-item">
+                    <a href="https://www.facebook.com/italy.restaurants/" class="footer__social-item">
                         <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M1.881 19.048H5.836V9.53H8.506L8.852 6.168H5.836V4.191C5.836 3.45 6.329 3.276 6.675 3.276H8.803V0.012L5.873 0C2.62 0 1.881 2.434 1.881 3.992V6.169H0V9.531H1.881V19.048Z"
                                 fill="#FAF7F5"/>
                         </svg>
                     </a>
-                    <a href="#" class="footer__social-item">
+                    <a href="https://www.instagram.com/italy.restaurants" class="footer__social-item">
                         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M14.042 0H5.958C2.673 0 0 2.708 0 6.038V14.231C0 17.561 2.673 20.27 5.958 20.27H14.042C17.327 20.27 20 17.56 20 14.231V6.038C20 2.708 17.327 0 14.042 0ZM17.988 14.231C17.988 16.44 16.221 18.231 14.042 18.231H5.958C3.778 18.231 2.012 16.44 2.012 14.231V6.038C2.012 3.829 3.779 2.038 5.958 2.038H14.042C16.222 2.038 17.988 3.829 17.988 6.038V14.231Z"
