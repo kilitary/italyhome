@@ -27,10 +27,17 @@ switch(@$_GET['action']) {
                 } elseif($c['cost'] == 0) {
                     $msg .= '.Доставка бесплатная';
                 }
+                
                 if($c['min_sum'] > 0) {
                     $msg .= '.Минимальная сумма заказа ' . $c['min_sum'];
                 }
+
+                if($c['tel']) {
+                    $msg .= 'Заказ можете сделать по телефону ' . $c['tel'];
+                }
+
                 $data['msg'] = $msg . '<br/><br/>';
+
                 echo json_encode($data);
                 exit;
             }

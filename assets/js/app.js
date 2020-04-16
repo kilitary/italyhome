@@ -12,6 +12,7 @@ function init() {
 		var regionsNumber = 0;
 		$.each(zones, $.proxy(function(i, el) {
 			// Reverse coordinates
+			console.log('do ' + el.name);
 			$.each(el.coords, $.proxy(function(j, region) {
 				var r = region[0];
 				region[0] = region[1];
@@ -58,13 +59,13 @@ function doSearch(value) {
 			if(data.msg.indexOf('550') !== -1) {
 				restaurantUrl = '';
 				$('#href-rest').remove();
-				$('#dialog-confirm').show();
+				$('#dialog-confirm').css('display', 'flex');
 			} else {
 				restaurantUrl = data.url;
 				if(typeof $('#href-rest').html() == 'undefined') {
 					$('#a_div').html('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
 				}
-				$('#dialog-confirm').show();
+				$('#dialog-confirm').css('display', 'flex');
 
 			}
 
