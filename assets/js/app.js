@@ -41,7 +41,11 @@ function init() {
 
 function gotoRestaurant() {
 	$('#dialog-confirm').hide();
-	document.location.href = restaurantUrl;
+	if(restaurantUrl) {
+		const goal = restaurantUrl.match(/https?:\/\/(.+)$/)[1];
+		ym(62026936,'reachGoal', goal)
+		document.location.href = restaurantUrl;
+	}
 }
 
 function searchButton(e) {
@@ -60,7 +64,7 @@ function doSearch(value) {
 
 			$('#msg').html(data.msg);
 
-			if(data.msg.indexOf('550') !== -1) {
+			if(data.msg.indexOf('900') !== -1) {
 				restaurantUrl = '';
 
 				if(typeof data.menu != 'undefined') {
@@ -126,4 +130,10 @@ $(function() {
 			});
 		}
 	});
+
+
+	// Metrika
+	$('.search-button').click(() => ym(62026936,'reachGoal','check_address'));
+	$('.phone-goal').click(() => ym(62026936,'reachGoal','header_phone'));
+	
 });

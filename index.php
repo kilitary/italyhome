@@ -23,7 +23,7 @@ switch(@$_GET['action']) {
                 }
 
                 if($c['cost'] > 0) {
-                    $msg .= '. Доставка ' . $c['cost'] . '₽';
+                    $msg .= '. Доставка ' . $c['cost'] . ' руб';
                 } elseif($c['cost'] == 0) {
                     $msg .= '. Доставка бесплатная';
                 }
@@ -33,11 +33,11 @@ switch(@$_GET['action']) {
                 }
 
                 if($c['min_sum'] > 0) {
-                    $msg .= '.<br/> Минимальная сумма заказа ' . $c['min_sum'] . '₽';
+                    $msg .= '.<br/> Минимальная сумма заказа ' . $c['min_sum'] . ' руб';
                 }
 
                 if(isset($c['tel'])) {
-                    $msg .= '. <br/>Заказ можете сделать по телефону <a style="color:red" href="tel:' . $c['tel'] . '">' . $c['tel'] . '</a>';
+                    $msg .= '. <br/>Заказ можете сделать по телефону <br/><a style="color:red" href="tel:' . $c['tel'] . '">' . $c['tel'] . '</a>';
                 }
 
                 if(isset($c['menu'])) {
@@ -52,7 +52,7 @@ switch(@$_GET['action']) {
 
         $data = [];
         $data['msg'] = "Данный адрес не входит в зону Доставки.<br/> Пожалуйста, свяжитесь с нами по телефону " .
-            "<a  style='color:red' href='tel:8-812-900-23-33'> 8-812-900-23-33</a><br/><br/><br/>";
+            "<br/><a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a><br/><br/><br/>";
         echo json_encode($data);
         exit;
         break;

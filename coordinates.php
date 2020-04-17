@@ -87,7 +87,7 @@ $coordinates = [
     [
         'url' => 'http://moskovsky.italydomoy.ru',
         'cost' => 0,
-        'min_sum' => 5000,
+        'min_sum' => 3000,
         'name' => 'Московском',
         'color' => '#ffd300',
         'coords' => [[30.008413490308534, 59.864597660598946],

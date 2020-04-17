@@ -17,6 +17,20 @@
     <LINK href="/assets/css/jquery-ui.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="assets/css/main.css">
     <script src="assets/js/app.js"></script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(62026936, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/62026936" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <div class="wrapper">
@@ -25,7 +39,7 @@
       <div class="header__info">
         <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от 900₽</div>
         <div class="header__item mobile-none"><img src="/assets/img/time.svg" alt="time">ПН-ВС: 10:00-22:30</div>
-        <a href="tel:+78129002333" class="header__item"><img src="/assets/img/phone.svg" alt="phone">+7 (812) 900-23-33</a>
+        <a href="tel:+78129002333" class="header__item phone-goal"><img src="/assets/img/phone.svg" alt="phone">+7 (812) 900-23-33</a>
       </div>
     </header>
     <main>
@@ -112,8 +126,8 @@
             <img src="/assets/img/close-btn.svg" alt="close">
         </button>
         <div class="popup__text">
+            <span id="msg">Мы доставим Ваш заказ из ресторана</span>
         </div>
-        <span id="msg">Мы доставим Ваш заказ из ресторана</span>
         <div id="a_div">
             <a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>
         </div>
