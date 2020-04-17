@@ -25,7 +25,7 @@ switch(@$_GET['action']) {
                 if($c['cost'] > 0) {
                     $msg .= '. Доставка ' . $c['cost'] . '₽';
                 } elseif($c['cost'] == 0) {
-                    $msg .= '. Доставка бесплатная ';
+                    $msg .= '. Доставка бесплатная';
                 }
 
                 if(isset($c['working_hours'])) {
