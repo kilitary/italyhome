@@ -24,7 +24,7 @@
       <a href="/" class="header__logo"><img src="/assets/img/logo.svg" alt="logo"></a>
       <div class="header__info">
         <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от 900 Р</div>
-        <div class="header__item mobile-none"><img src="/assets/img/time.svg" alt="time">ПН-ВС: 12:00-23:30</div>
+        <div class="header__item mobile-none"><img src="/assets/img/time.svg" alt="time">ПН-ВС: 10:00-22:30</div>
         <a href="tel:+78129002333" class="header__item"><img src="/assets/img/phone.svg" alt="phone">+7 (812) 900-23-33</a>
       </div>
     </header>
@@ -47,7 +47,7 @@
                     Так же вкусно как в Italy, только дома.
                 </div>
             </div>
-            <div class="section-zone__image">
+            <div class="section-zone__image mobile-none">
                 <img src="/assets/img/1stpet.jpg" alt="map">
                 <div id="map" style="width:0px;height:0px"></div>
             </div>
