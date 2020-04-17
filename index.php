@@ -17,13 +17,13 @@ switch(@$_GET['action']) {
                 $data['url'] = $c['url'];
 
                 if(isset($c['name'])) {
-                    $msg = 'Ваш заказ будет доставлен из ресторана на ' . $c['name'] . ' Italy';
+                    $msg = 'Ваш заказ будет доставлен из ресторана Italy на ' . $c['name'];
                 } else {
                     $msg = '';
                 }
 
                 if($c['cost'] > 0) {
-                    $msg .= '. Доставка ' . $c['cost'];
+                    $msg .= '. Доставка ' . $c['cost'] . '₽';
                 } elseif($c['cost'] == 0) {
                     $msg .= '. Доставка бесплатная ';
                 }
@@ -33,7 +33,7 @@ switch(@$_GET['action']) {
                 }
 
                 if($c['min_sum'] > 0) {
-                    $msg .= '.<br/> Минимальная сумма заказа ' . $c['min_sum'];
+                    $msg .= '.<br/> Минимальная сумма заказа ' . $c['min_sum'] . '₽';
                 }
 
                 if(isset($c['tel'])) {

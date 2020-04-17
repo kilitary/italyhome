@@ -23,7 +23,7 @@
     <header class="header">
       <a href="/" class="header__logo"><img src="/assets/img/logo.svg" alt="logo"></a>
       <div class="header__info">
-        <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от 900 Р</div>
+        <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от 900₽</div>
         <div class="header__item mobile-none"><img src="/assets/img/time.svg" alt="time">ПН-ВС: 10:00-22:30</div>
         <a href="tel:+78129002333" class="header__item"><img src="/assets/img/phone.svg" alt="phone">+7 (812) 900-23-33</a>
       </div>
