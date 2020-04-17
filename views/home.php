@@ -21,12 +21,12 @@
 <body>
 <div class="wrapper">
     <header class="header">
-        <a href="/" class="header__logo"><img src="./assets/img/logo.svg" alt="logo"></a>
-        <div class="header__info">
-            <div class="header__item"><img src="./assets/img/sum.svg" alt="sum">Доставка от 1000 Р</div>
-            <div class="header__item"><img src="./assets/img/time.svg" alt="time">ПН-ВС: 12:00-23:30</div>
-            <div class="header__item"><img src="./assets/img/phone.svg" alt="phone">8-800-550-79-31</div>
-        </div>
+      <a href="/" class="header__logo"><img src="/assets/img/logo.svg" alt="logo"></a>
+      <div class="header__info">
+        <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от 900 Р</div>
+        <div class="header__item mobile-none"><img src="/assets/img/time.svg" alt="time">ПН-ВС: 12:00-23:30</div>
+        <a href="tel:+78129002333" class="header__item"><img src="/assets/img/phone.svg" alt="phone">+7 (812) 900-23-33</a>
+      </div>
     </header>
     <main>
         <section class="section-main">
@@ -52,15 +52,17 @@
                 <div id="map" style="width:0px;height:0px"></div>
             </div>
         </section>
-        <section class="section-cooking">
+        <section class="section-cooking mobile-none">
+            <video class="section-cooking__video" loop autoplay muted>
+                <source src="/assets/img/italy-cooking.mp4" type="video/mp4">
+            </video>
             <div class="section-cooking__container">
                 <h2 class="section-cooking__title">Ресторан итальянской кухни Italy</h2>
                 <div class="section-cooking__text">
-                    ITALY GROUP - это вкусоцентричные заведения, где страсть к еде - главное правило, забота о гостях -
-                    основа сервиса,
-                    а кухня занимает центральное место в каждой концепции.
-                </div>
+                ITALY GROUP - это вкусоцентричные заведения, где страсть к еде - главное правило, забота о гостях - основа сервиса, 
+                а кухня занимает центральное место в каждой концепции.
             </div>
+        </div>
         </section>
     </main>
     <footer class="footer">
