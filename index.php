@@ -1,6 +1,13 @@
 <?php
 require('coordinates.php');
 require('geo.php');
+require('vendor/autoload.php');
+
+use GeoIp2\Database\Reader;
+
+$reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
+$record = $reader->city($_SERVER['REMOTE_ADDR']);
+$city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
 
 switch(@$_GET['action']) {
     case 'maps':
@@ -9,9 +16,13 @@ switch(@$_GET['action']) {
     case 'calc':
         $lat = $_GET['lat'];
         $lng = $_GET['lng'];
+        $city = $_GET['city'];
         foreach($coordinates as $c) {
 
             if(Geo::pointInPolygon([$lat, $lng], $c['coords'])) {
+                if($city !== $c['city']) {
+                    continue;
+                }
                 $data = [];
                 $data['cost'] = $c['cost'];
                 $data['url'] = $c['url'];
@@ -57,6 +68,6 @@ switch(@$_GET['action']) {
         exit;
         break;
     default:
-        echo file_get_contents('views/home.php');
+        include('views/home.php');
         break;
 }

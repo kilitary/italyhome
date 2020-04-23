@@ -1,139 +1,195 @@
 var myMap;
 var restaurantUrl;
+var city = '';
 
 function init() {
-	// Создание карты.
-	myMap = new ymaps.Map('map', {
-		center: [59.939095, 30.315868],
-		zoom: 10
-	});
-	$.get('/?action=maps', function(zones) {
-		zones = JSON.parse(zones);
-		var regionsNumber = 0;
-		$.each(zones, $.proxy(function(i, el) {
-			$.each(el.coords, $.proxy(function(j, region) {
-				var r = region[0];
-				region[0] = region[1];
-				region[1] = r;
+    // Создание карты.
+    myMap = new ymaps.Map('map', {
+        center: [59.939095, 30.315868],
+        zoom: 10
+    });
+    $.get('/?action=maps', function(zones) {
+        zones = JSON.parse(zones);
+        var regionsNumber = 0;
+        $.each(zones, $.proxy(function(i, el) {
+            $.each(el.coords, $.proxy(function(j, region) {
+                var r = region[0];
+                region[0] = region[1];
+                region[1] = r;
 
-				regionsNumber++;
+                regionsNumber++;
 
-				el.coords[j] = region;
-			}, this));
+                el.coords[j] = region;
+            }, this));
 
-			var myPolygon = new ymaps.Polygon(
-				[el.coords],
-				{
-					hintContent: 'Зона доставки на ' + el.name + ' за ' + el.cost + ' рублей.' + ' Минимальная сумма: ' + el.min_sum
-				},
-				{
-					fillColor: el.color,
-					fillOpacity: 0.6,
-					strokeColor: el.color,
-					strokeWidth: 0,
-					strokeOpacity: 1
-				}
-			);
-			myMap.geoObjects.add(myPolygon);
-		}));
-	});
+            var myPolygon = new ymaps.Polygon(
+                [el.coords],
+                {
+                    hintContent: 'Зона доставки на ' + el.name + ' за ' + el.cost + ' рублей.' + ' Минимальная сумма: ' + el.min_sum
+                },
+                {
+                    fillColor: el.color,
+                    fillOpacity: 0.6,
+                    strokeColor: el.color,
+                    strokeWidth: 0,
+                    strokeOpacity: 1
+                }
+            );
+            myMap.geoObjects.add(myPolygon);
+        }));
+    });
 }
 
 function gotoRestaurant() {
-	$('#dialog-confirm').hide();
-	if(restaurantUrl) {
-		const goal = restaurantUrl.match(/https?:\/\/(.+)$/)[1];
-		ym(62026936,'reachGoal', goal)
-		document.location.href = restaurantUrl;
-	}
+    $('#dialog-confirm').hide();
+    if(restaurantUrl) {
+        const goal = restaurantUrl.match(/https?:\/\/(.+)$/)[1];
+        ym(62026936, 'reachGoal', goal);
+        gtag('event', goal);
+        document.location.href = restaurantUrl;
+    }
 }
 
 function searchButton(e) {
-	var e = window.event;
-	e.preventDefault();
-	doSearch('Санкт-петербург, ' + $('#addr').val());
+    var e = window.event;
+    e.preventDefault();
+    doSearch('Санкт-петербург, ' + $('#addr').val());
 }
 
 function doSearch(value) {
-	ymaps.geocode(value).then(function(result) {
-		var coords = result.geoObjects.properties._data.metaDataProperty.GeocoderResponseMetaData.Point.coordinates;
-		myMap.geoObjects.add(result.geoObjects.get(0));
+    ymaps.geocode(value).then(function(result) {
+        var coords = result.geoObjects.properties._data.metaDataProperty.GeocoderResponseMetaData.Point.coordinates;
+        myMap.geoObjects.add(result.geoObjects.get(0));
+        city = $('.active').data('id');
 
-		$.get('/?action=calc&lat=' + coords[0] + '&lng=' + coords[1], function(data) {
-			data = JSON.parse(data);
+        $.get('/?action=calc&city=' + city + '&lat=' + coords[0] + '&lng=' + coords[1], function(data) {
+            data = JSON.parse(data);
 
-			$('#msg').html(data.msg);
+            $('#msg').html(data.msg);
 
-			if(data.msg.indexOf('900') !== -1) {
-				restaurantUrl = '';
+            if(data.msg.indexOf('900') !== -1) {
+                restaurantUrl = '';
 
-				if(typeof data.menu != 'undefined') {
-					$('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
-				} else {
-					$('#href-rest').remove();
-				}
-				$('#dialog-confirm').css('display', 'flex');
-			} else {
-				restaurantUrl = data.url;
-				if(typeof $('#href-rest').html() == 'undefined') {
-					if(typeof data.menu === 'undefined') {
-						$('#a_div').html('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
-					} else {
-						$('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
-					}
-				}
-				$('#dialog-confirm').css('display', 'flex');
+                if(typeof data.menu != 'undefined') {
+                    $('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
+                } else {
+                    $('#href-rest').remove();
+                }
+                $('#dialog-confirm').css('display', 'flex');
+            } else {
+                restaurantUrl = data.url;
+                if(typeof $('#href-rest').html() == 'undefined') {
+                    if(typeof data.menu === 'undefined') {
+                        $('#a_div').html('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
+                    } else {
+                        $('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
+                    }
+                }
+                $('#dialog-confirm').css('display', 'flex');
 
-			}
+            }
 
-		});
+        });
 
-	});
+    });
 }
 
 $(function() {
-	ymaps.ready(init);
+    ymaps.ready(init);
 
-	$('#popup__close-btn').click(function(e) {
-		$('#dialog-confirm').hide();
-	});
+    $('#popup__close-btn').click(function(e) {
+        $('#dialog-confirm').hide();
+    });
 
-	var $addr = $('#addr');
-	var val = $addr.val();
+    var $addr = $('#addr');
+    var val = $addr.val();
 
-	$addr.autocomplete({
-		appendTo: '.section-main__search',
-		minLength: 2,
-		select: function(event, ui) {
-			doSearch(ui.item.value);
-		},
-		source: function(request, response) {
-			val = 'Россия,г Санкт-петербург, ' + $addr.val();
-			$.ajax({
-				method: 'POST',
-				url: 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address',
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json',
-					'Authorization': 'Token c09bee2729e6b180d922bfdb9e396d66baac6148'
-				},
-				dataType: 'json',
-				data:
-					JSON.stringify({
-						query: val,
-						count: 5
-					})
-				,
-				success: function(data) {
-					response(data.suggestions);
-				}
-			});
-		}
-	});
+    $addr.autocomplete({
+        appendTo: '.section-main__search',
+        minLength: 2,
+        select: function(event, ui) {
+            doSearch(ui.item.value);
+        },
+        source: function(request, response) {
+            var cty = city === 'spb' ? 'Санкт-Петербург' : 'Москва';
+            val = 'Россия,г ' + cty + ', ' + $addr.val();
+            $.ajax({
+                method: 'POST',
+                url: 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Token c09bee2729e6b180d922bfdb9e396d66baac6148'
+                },
+                dataType: 'json',
+                data:
+                    JSON.stringify({
+                        query: val,
+                        count: 5
+                    })
+                ,
+                success: function(data) {
+                    response(data.suggestions);
+                }
+            });
+        }
+    });
 
 
-	// Metrika
-	$('.search-button').click(() => ym(62026936,'reachGoal','check_address'));
-	$('.phone-goal').click(() => ym(62026936,'reachGoal','header_phone'));
-	
+    // Metrika и gtag
+    $('.search-button').click(() => {
+        ym(62026936, 'reachGoal', 'check_address');
+        gtag('event', 'check_address');
+    });
+    $('.phone-goal').click(() => {
+        ym(62026936, 'reachGoal', 'header_phone');
+        gtag('event', 'header_phone');
+    });
+
+    //slick slider
+    $('.slider').slick({
+        infinite: true,
+        speed: 500,
+        touchMove: true,
+        arrows: true,
+        centerMode: true,
+        centerPadding: "190px",
+        slidesToShow: 1,
+        prevArrow: $('.slider__prev'),
+        nextArrow: $('.slider__next'),
+        responsive: [
+            {
+                breakpoint: 1550,
+                settings: {
+                    centerPadding: "150px"
+                }
+            },
+            {
+                breakpoint: 1450,
+                settings: {
+                    centerPadding: "100px"
+                }
+            },
+            {
+                breakpoint: 1320,
+                settings: {
+                    centerPadding: "50px"
+                }
+            },
+            {
+                breakpoint: 756,
+                settings: {
+                    centerPadding: "0",
+                }
+            }
+        ]
+    });
+
+    //switch city
+    $('.section-main__city-item').on('click', function() {
+        $('.section-main__city-item').removeClass('active');
+        $(this).addClass('active');
+        city = $(this).data('id');
+    });
+
 });

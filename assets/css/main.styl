@@ -77,8 +77,25 @@ body
   &__title
     h1()
     text-align: center
-    color: #FFFFFF
+    color: #ffffff
+    margin-bottom: 30px
+  &__choice
+    font-size: 24px
+    color: #ffffff
     margin-bottom: 60px
+  &__city-item
+    font-size: 24px
+    color: #909090
+    border: none;
+    border-bottom: 2px solid transparent
+    background-color: transparent;
+    cursor: pointer
+    transition: 0.3s
+    &:hover
+      color: $red
+    &.active
+      color: $red
+      border-bottom: 2px solid $red
   &__search
     position: relative
     width: 768px
@@ -180,7 +197,7 @@ body
 .section-chiefs
   position: relative
   padding: 120px 0
-  height: 620px
+  // height: 620px
   box-sizing: border-box
   background-color: #FAF7F5
   &__container
@@ -191,19 +208,36 @@ body
   &__title
     h1()
     text-align: left
-
-// .slick-track {
-//   display: flex !important
-//   justify-content: center
-// }
+    margin-bottom: 60px
+  &__slider-controls-top
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  &__slider-controls-bottom
+    display: none;
+    justify-content: space-between;
 
 .slider
+  max-width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  .slick-list
+    overflow: visible !important;
+  &__container
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #fff;
+    min-height: 480px;
+    padding: 144px 132px 160px 255px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    margin: 0 140px
   &__item
-    width: 1100px !important
-    max-width: 100%
-    padding: 144px 132px 160px 255px
-    box-sizing: border-box
-    background-color #fff
+    // width: 1100px !important
+    // max-width: 100%
+    position: relative
   &__title
     font-family: Roboto
     font-style: normal
@@ -211,14 +245,15 @@ body
     font-size: 14px
     line-height: 20px
     color: #F21200
+    margin-bottom: 10px
   &__name
     font-family: Gotham Pro
     font-style: normal
     font-weight: bold
     font-size: 24px
     line-height: 125%
-    text-align: center
     color: #000000
+    margin-bottom: 24px
   &__text
     font-family: Gotham Pro
     font-style: normal
@@ -227,17 +262,38 @@ body
     line-height: 150%
     color: #000000
   &__img
-      // position: absolute
-      width: 327px
-      max-width: 100%
-      height: 412px
-      border-radius: 10px
-      overflow: hidden
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-5%, -50%);
+    width: 327px;
+    max-width: 100%;
+    height: 412px;
+    border-radius: 10px;
+    overflow: hidden;
     img
       display: block
       width: 100%
       height: auto
       object-fit: cover
+  &__prev
+    margin-right: 10px
+  &__prev,
+  &__next
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $red;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover
+      background-color $red
+      svg path
+        stroke: white
 
 
 .popup
@@ -249,7 +305,6 @@ body
   transform: translate(-50%, -50%)
   display: flex
   display none
-  word-spacing: 0px
   justify-content: center
   align-items: center
   flex-direction: column
@@ -257,7 +312,6 @@ body
   padding: 0 80px
   box-sizing: border-box
   z-index: 10
-  font-size: 20px
   &__close-btn
     position: absolute
     top: 40px
@@ -389,6 +443,14 @@ body
       margin: 40px 0
       box-sizing: border-box
       padding: 0 15px
+      box-sizing: border-box
+
+  .section-chiefs
+    padding: 60px 15px
+    &__title
+      margin-bottom: 20px
+    &__slider-controls-bottom
+      display: flex;
 
   .footer
     display: flex
@@ -417,8 +479,30 @@ body
     max-width: 100%
     padding: 15px
     height: 100vh
-    word-spacing: 0px
-    font-size: 20px
+    word-spacing: 0px;
+    font-size: 20px;
+
+@media only screen and (max-width: 1000px)
+  .slider
+    &__container
+      padding: 30px 0 30px 60px
+      min-height: auto;
+      margin: 0 10px 0 30px;
+    &__img
+      height: 80%;
+      width: auto;
+      transform: translate(0%, -50%);
+      img
+        height: 100%;
+        width: auto;
+    &__title
+      font-size: 14px
+      margin-bottom: 8px
+    &__name
+      font-size: 16px
+      margin-bottom: 0
+    &__text
+      display: none
 
 // jquery ui
 .ui-autocomplete
@@ -451,6 +535,3 @@ body
   border: 1px solid transparent
   background-color: transparent
   color: #f21200
-
-#msg
-  text-align: center
