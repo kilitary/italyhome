@@ -270,6 +270,9 @@
             type="text/javascript">
     </script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        var city = '<?php echo $city?>';
+    </script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>

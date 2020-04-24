@@ -1,6 +1,5 @@
 var myMap;
 var restaurantUrl;
-var city = '';
 
 function init() {
     // Создание карты.
@@ -61,7 +60,7 @@ function doSearch(value) {
         var coords = result.geoObjects.properties._data.metaDataProperty.GeocoderResponseMetaData.Point.coordinates;
         myMap.geoObjects.add(result.geoObjects.get(0));
         city = $('.active').data('id');
-
+        console.log(city);
         $.get('/?action=calc&city=' + city + '&lat=' + coords[0] + '&lng=' + coords[1], function(data) {
             data = JSON.parse(data);
 
