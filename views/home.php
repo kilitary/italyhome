@@ -262,6 +262,32 @@
                 <a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>
             </div>
         </div>
+        <div class="popup-rests">
+          <div class="popup-rests__title">По вашему адресу доступно:</div>
+          <div class="popup-rests__btn-close"><img src="/assets/img/close-btn.svg" alt="close"></div>
+          <div class="popup-rests__container">
+            <a href="#" class="popup-rests__item">
+              <div class="popup-rests__logo"><img src="/assets/img/logos/hitch.svg" alt="logo"></div>
+              <div class="popup-rests__delivery-text">Бесплатная доставка от 900 ₽</div>
+              <button type="button" class="popup-rests__btn">Посмотреть меню</button>
+            </a>
+            <a href="#" class="popup-rests__item">
+              <div class="popup-rests__logo"><img src="/assets/img/logos/hitch.svg" alt="logo"></div>
+              <div class="popup-rests__delivery-text">Бесплатная доставка от 900 ₽</div>
+              <button type="button" class="popup-rests__btn">Посмотреть меню</button>
+            </a>
+            <a href="#" class="popup-rests__item">
+              <div class="popup-rests__logo"><img src="/assets/img/logos/hitch.svg" alt="logo"></div>
+              <div class="popup-rests__delivery-text">Бесплатная доставка от 900 ₽</div>
+              <button type="button" class="popup-rests__btn">Посмотреть меню</button>
+            </a>
+            <a href="#" class="popup-rests__item">
+              <div class="popup-rests__logo"><img src="/assets/img/logos/hitch.svg" alt="logo"></div>
+              <div class="popup-rests__delivery-text">Бесплатная доставка от 900 ₽</div>
+              <button type="button" class="popup-rests__btn">Посмотреть меню</button>
+            </a>
+          </div>
+        </div>
         <div class="overlay"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>

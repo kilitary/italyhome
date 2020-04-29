@@ -60,33 +60,45 @@ function doSearch(value) {
         var coords = result.geoObjects.properties._data.metaDataProperty.GeocoderResponseMetaData.Point.coordinates;
         myMap.geoObjects.add(result.geoObjects.get(0));
         city = $('.active').data('id');
-        console.log(city);
-        $.get('/?action=calc&city=' + city + '&lat=' + coords[0] + '&lng=' + coords[1], function(data) {
-            data = JSON.parse(data);
+        let htmlCode = '';
+        $.get('/?action=calc&city=' + city + '&lat=' + coords[0] + '&lng=' + coords[1], function(res) {
+            res = JSON.parse(res);
 
-            $('#msg').html(data.msg);
+            for(var i = 0; i < res.length; i++) {
+                var restourant = res[i];
+                console.log('rest', restourant);
 
-            if(data.msg.indexOf('900') !== -1) {
-                restaurantUrl = '';
+                let msg = restourant.msg;
 
-                if(typeof data.menu != 'undefined') {
-                    $('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
-                } else {
-                    $('#href-rest').remove();
-                }
-                $('#dialog-confirm').css('display', 'flex');
-            } else {
-                restaurantUrl = data.url;
-                if(typeof $('#href-rest').html() == 'undefined') {
-                    if(typeof data.menu === 'undefined') {
-                        $('#a_div').html('<a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>');
+                if(restourant.msg.indexOf('900') !== -1) {
+                    restaurantUrl = '';
+
+                    if(typeof restourant.menu != 'undefined') {
+                        htmlCode += '<a href="' + restourant.menu + '" class="popup-rests__item" id="href-rest" target="_blank">';
                     } else {
-                        $('#a_div').html('<a href="' + data.menu + '" class="popup__link-btn" id="href-rest" target="_blank">Посмотреть меню</a>');
+                        $('#href-rest').remove();
                     }
-                }
-                $('#dialog-confirm').css('display', 'flex');
+                    $('.popup-rests').fadeIn("slow");
+                    $('.overlay').show();
+                } else {
+                    restaurantUrl = restourant.url;
+                    if(typeof restourant.menu === 'undefined') {
+                        htmlCode += '<a href="#" class="popup-rests__item" id="href-rest" onclick="gotoRestaurant()">';
+                    } else {
+                        htmlCode += '<a href="' + restourant.menu + '" class="popup-rests__item" id="href-rest" target="_blank">';
+                    }
+                    $('.popup-rests').fadeIn("slow");
+                    $('.overlay').show();
 
+                }
+                htmlCode += '<div class="popup-rests__logo"><img src="/assets/img/logos/hitch.svg" alt="logo"></div>' +
+                    '              <div class="popup-rests__delivery-text">' + msg + '</div>' +
+                    '              <button type="button" class="popup-rests__btn">Посмотреть меню</button>' +
+                    '            </a>';
             }
+            console.log('html', htmlCode);
+
+            $('.popup-rests__container').html(htmlCode);
 
         });
 
@@ -98,6 +110,11 @@ $(function() {
 
     $('#popup__close-btn').click(function(e) {
         $('#dialog-confirm').hide();
+    });
+
+    $('.popup-rests__btn-close').click(function() {
+        $('.overlay').hide();
+        $('.popup-rests').fadeOut("slow");
     });
 
     var $addr = $('#addr');
