@@ -4,7 +4,7 @@ require('geo.php');
 require('vendor/autoload.php');
 
 // TODO: turn on this code before deploy
-//use GeoIp2\Database\Reader;
+use GeoIp2\Database\Reader;
 //
 $reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
 $record = $reader->city($_SERVER['REMOTE_ADDR']);
