@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Italydomoy</title>
+    <title>ДОСТАВКА ИЗ РЕСТОРАНОВ ITALY GROUP</title>
     <link href="/assets/css/jquery-ui.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="assets/css/main.css?1">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -71,12 +71,10 @@
         </section>
         <section class="section-zone">
             <div class="section-zone__text-block">
-                <h2 class="section-zone__title">Зоны доставки из ресторанов Italy</h2>
+                <h2 class="section-zone__title">Зоны доставки из ресторанов ITALY GROUP.</h2>
                 <div class="section-zone__text">
-                    Italy домой - доставка еды из ресторанов Italy в Санкт-Петербурге.
-                    Традиционная итальянская пицца, домашняя паста, свежие салаты, ароматные супы и разнообразие горячих
-                    блюд.
-                    Так же вкусно как в Italy, только дома.
+                    Доставка еды из ресторанов в Санкт-Петербурге. Традиционная итальянская пицца Italy, грузинская кухня Чеми, стейки и бургеры от HITCH,
+                    бельгийская классика BRUXX - так же вкусно как в ресторане, только дома!
                 </div>
             </div>
             <div class="section-zone__image mobile-none">
