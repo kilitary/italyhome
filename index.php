@@ -1,8 +1,9 @@
 <?php
-require('coordinates.php');
+require('restaurants.php');
 require('geo.php');
 require('vendor/autoload.php');
 
+// TODO: turn on this code before deploy
 //use GeoIp2\Database\Reader;
 //
 //$reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
@@ -12,7 +13,7 @@ $city = 'spb';
 $rests = [];
 switch(@$_GET['action']) {
     case 'maps':
-        echo json_encode($coordinates);
+        echo json_encode($restaurants);
         break;
     case 'calc':
         $lat = $_GET['lat'];
@@ -20,7 +21,7 @@ switch(@$_GET['action']) {
         $city = $_GET['city'];
         $index = 0;
 
-        foreach($coordinates as $c) {
+        foreach($restaurants as $c) {
             $index++;
             if(Geo::pointInPolygon([$lat, $lng], $c['coords'])) {
                 if($city !== $c['city']) {
@@ -34,7 +35,7 @@ switch(@$_GET['action']) {
 
                 if(isset($c['name'])) {
 //                    $msg = 'Ваш заказ будет доставлен из ресторана Italy на ' . $c['name'];
-                    $msg = 'Italy на ' . $c['name'];
+                    $msg = 'Ресторан Italy  ' . $c['name'] . '<br/>';
                 } else {
                     $msg = '';
                 }
@@ -64,7 +65,6 @@ switch(@$_GET['action']) {
                 $rests[] = $data;
             }
         }
-
 
         if(!count($rests)) {
             $data = [];
