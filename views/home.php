@@ -263,17 +263,6 @@
             <img src="/assets/img/cards.png" alt="visa mastercard">
         </div>
     </footer>
-    <div class="popup" id="dialog-confirm" style="display: none;">
-        <button class="popup__close-btn" id="popup__close-btn">
-            <img src="/assets/img/close-btn.svg" alt="close">
-        </button>
-        <div class="popup__text">
-            <span id="msg">Мы доставим Ваш заказ из ресторана</span>
-        </div>
-        <div id="a_div">
-            <a href="#" class="popup__link-btn" id="href-rest" onclick="gotoRestaurant()">Посмотреть меню</a>
-        </div>
-    </div>
     <div class="popup-rests">
         <div class="popup-rests__title">По вашему адресу доступно:</div>
         <div class="popup-rests__btn-close"><img src="/assets/img/close-btn.svg" alt="close"></div>
