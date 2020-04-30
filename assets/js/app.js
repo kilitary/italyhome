@@ -24,7 +24,7 @@ function init() {
 			var myPolygon = new ymaps.Polygon(
 				[el.coords],
 				{
-					hintContent: 'Зона доставки на ' + el.name + ' за ' + el.cost + ' рублей.' + ' Минимальная сумма: ' + el.min_sum
+					hintContent: 'Зона доставки на ' + el.name + ' за ' + el.cost + ' рублей.' + ' Минимальная сумма: ' + el.min_sum + ' Время доставки: ' + el.delivery_time
 				},
 				{
 					fillColor: el.color,
@@ -64,6 +64,10 @@ function doSearch(value) {
 		$.get('/?action=calc&city=' + city + '&lat=' + coords[0] + '&lng=' + coords[1], function(res) {
 			res = JSON.parse(res);
 
+			if(!res.length) {
+				htmlCode = res.msg;
+			}
+
 			for(var i = 0; i < res.length; i++) {
 				var restourant = res[i];
 				console.log('rest', restourant);
@@ -78,7 +82,7 @@ function doSearch(value) {
 					} else {
 						$('#href-rest').remove();
 					}
-					$('.popup-rests').fadeIn('slow');
+
 					$('.overlay').show();
 				} else {
 					restaurantUrl = restourant.url;
@@ -87,7 +91,7 @@ function doSearch(value) {
 					} else {
 						htmlCode += '<a href="' + restourant.menu + '" class="popup-rests__item" id="href-rest" target="_blank">';
 					}
-					$('.popup-rests').fadeIn('slow');
+
 					$('.overlay').show();
 
 				}
@@ -99,7 +103,7 @@ function doSearch(value) {
 			console.log('html', htmlCode);
 
 			$('.popup-rests__container').html(htmlCode);
-
+			$('.popup-rests').fadeIn('slow');
 		});
 
 	});
