@@ -64,7 +64,7 @@
                 <button class="section-main__city-item <?php if($city === 'msk') echo 'active' ?>" data-id="msk">Москва</button>
             </div>
             <form class="section-main__search">
-                <input type="text" id="addr" class="section-main__input search-input" placeholder="Введите адрес доставки ">
+                <input type="text" id="addr" class="section-main__input search-input" placeholder="Введите адрес доставки...">
                 <button type="submit" class="section-main__button search-button" onclick="searchButton()">Проверить адрес
                 </button>
             </form>

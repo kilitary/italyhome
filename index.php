@@ -32,7 +32,11 @@ switch(@$_GET['action']) {
                 $data['url'] = $c['url'];
                 $data['name'] = $c['name'];
                 $data['id'] = $index;
-                $data['logo'] = $c['logo'];
+                if(empty($c['logo'])) {
+                    $data['logo'] = 'def.png';
+                } else {
+                    $data['logo'] = $c['logo'];
+                }
 
                 if(isset($c['name'])) {
 //                    $msg = 'Ваш заказ будет доставлен из ресторана Italy на ' . $c['name'];

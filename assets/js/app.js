@@ -135,7 +135,12 @@ function cookie(cookieName, cookieValue) {
 $(function() {
 	ymaps.ready(init);
 
-	$('#addr').val(cookie('addr'));
+	var $addr = $('#addr');
+	var cityValue = $addr.val();
+
+	if(cityValue.length > 0) {
+		$('#addr').val(cityValue);
+	}
 
 	$('#popup__close-btn').click(function(e) {
 		$('#dialog-confirm').hide();
@@ -146,9 +151,6 @@ $(function() {
 		$('.popup-rests').fadeOut('slow');
 	});
 
-	var $addr = $('#addr');
-	var val = $addr.val();
-
 	$addr.autocomplete({
 		appendTo: '.section-main__search',
 		minLength: 2,
@@ -157,7 +159,7 @@ $(function() {
 		},
 		source: function(request, response) {
 			var cty = city === 'spb' ? 'Санкт-Петербург' : 'Москва';
-			val = 'Россия,г ' + cty + ', ' + $addr.val();
+			cityValue = 'Россия,г ' + cty + ', ' + $addr.val();
 			$.ajax({
 				method: 'POST',
 				url: 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address',
@@ -169,7 +171,7 @@ $(function() {
 				dataType: 'json',
 				data:
 					JSON.stringify({
-						query: val,
+						query: cityValue,
 						count: 5
 					})
 				,
