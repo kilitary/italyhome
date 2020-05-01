@@ -5,7 +5,7 @@ require('vendor/autoload.php');
 
 // TODO: turn on this code before deploy
 use GeoIp2\Database\Reader;
-//
+
 $reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
 $record = $reader->city($_SERVER['REMOTE_ADDR']);
 $city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
@@ -32,34 +32,35 @@ switch(@$_GET['action']) {
                 $data['url'] = $c['url'];
                 $data['name'] = $c['name'];
                 $data['id'] = $index;
+                $data['logo'] = $c['logo'];
 
                 if(isset($c['name'])) {
 //                    $msg = 'Ваш заказ будет доставлен из ресторана Italy на ' . $c['name'];
-                    $msg = 'Ресторан Italy  ' . $c['name'] . '<br/>';
+                    $msg = 'Ресторан Italy  <br/>' . $c['name'] . '<br/>';
                 } else {
                     $msg = '';
                 }
 
                 if($c['cost'] > 0) {
-                    $msg .= '. Доставка ' . $c['cost'] . ' руб';
+                    $msg .= ' Доставка ' . $c['cost'] . ' руб';
                 } elseif($c['cost'] == 0) {
-                    $msg .= '. Доставка бесплатная';
+                    $msg .= ' Доставка бесплатная';
                 }
 
                 if(isset($c['working_hours'])) {
-                    $msg .= '. Время работы ' . $c['working_hours'];
+                    $msg .= ' Время работы ' . $c['working_hours'];
                 }
 
                 if(isset($c['delivery_time'])) {
-                    $msg .= '. Время доставки ' . $c['delivery_time'];
+                    $msg .= ' Время доставки ' . $c['delivery_time'] . ' мин.';
                 }
 
                 if($c['min_sum'] > 0) {
-                    $msg .= '.<br/> Минимальная сумма заказа ' . $c['min_sum'] . ' руб';
+                    $msg .= '<br/> Минимальная сумма заказа ' . $c['min_sum'] . ' руб';
                 }
 
                 if(isset($c['tel'])) {
-                    $msg .= '. <br/>Заказ можете сделать по телефону <br/><div></div><a style="color:red" href="tel:' . $c['tel'] . '">' . $c['tel'] . '</a>';
+                    $msg .= ' <br/>Заказ можете сделать по телефону <br/><div></div><a style="color:red" href="tel:' . $c['tel'] . '">' . $c['tel'] . '</a>';
                 }
 
                 if(isset($c['menu'])) {
@@ -72,8 +73,8 @@ switch(@$_GET['action']) {
 
         if(!count($rests)) {
             $data = [];
-            $data['msg'] = "<div>Данный адрес не входит в зону Доставки.<br/> Пожалуйста, свяжитесь с нами по телефону " .
-                "<br/></div><div style='clear:both'><a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a></div><br/><br/><br/>";
+            $data['msg'] = "<div style='text-align: center'>Данный адрес не входит в зону Доставки.<br/> Пожалуйста, свяжитесь с нами по телефону " .
+                "<br/><a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a></div>";
             echo json_encode($data);
         } else {
             echo json_encode($rests);

@@ -39,14 +39,13 @@ function init() {
 	});
 }
 
-function gotoRestaurant() {
+function gotoRestaurant(obj) {
 	$('#dialog-confirm').hide();
-	if(restaurantUrl) {
-		const goal = restaurantUrl.match(/https?:\/\/(.+)$/)[1];
-		ym(62026936, 'reachGoal', goal);
-		gtag('event', goal);
-		document.location.href = restaurantUrl;
-	}
+	let url = $(obj).data('url');
+	const goal = restaurantUrl.match(/https?:\/\/(.+)$/)[1];
+	ym(62026936, 'reachGoal', goal);
+	gtag('event', goal);
+	document.location.href = url;
 }
 
 function searchButton(e) {
@@ -66,6 +65,8 @@ function doSearch(value) {
 
 			if(!res.length) {
 				htmlCode = res.msg;
+			} else {
+				cookie('addr', value);
 			}
 
 			for(var i = 0; i < res.length; i++) {
@@ -87,7 +88,7 @@ function doSearch(value) {
 				} else {
 					restaurantUrl = restourant.url;
 					if(typeof restourant.menu === 'undefined') {
-						htmlCode += '<a href="#" class="popup-rests__item" id="href-rest" data-url="' + restaurantUrl + '" onclick="gotoRestaurant()">';
+						htmlCode += '<a href="#" class="popup-rests__item" id="href-rest" data-url="' + restaurantUrl + '" onclick="gotoRestaurant(this)">';
 					} else {
 						htmlCode += '<a href="' + restourant.menu + '" class="popup-rests__item" id="href-rest" target="_blank">';
 					}
@@ -95,7 +96,7 @@ function doSearch(value) {
 					$('.overlay').show();
 
 				}
-				htmlCode += '<div class="popup-rests__logo"><img src="/assets/img/logos/hitch.svg" alt="logo"></div>' +
+				htmlCode += '<div class="popup-rests__logo"><img src="/assets/img/logos/' + restourant.logo + '" alt="logo"></div>' +
 					'              <div class="popup-rests__delivery-text">' + msg + '</div>' +
 					'              <button type="button" class="popup-rests__btn">Посмотреть меню</button>' +
 					'            </a>';
@@ -109,8 +110,32 @@ function doSearch(value) {
 	});
 }
 
+function accessCookie(cookieName) {
+	var name = cookieName + '=';
+	var allCookieArray = document.cookie.split(';');
+	for(var i = 0; i < allCookieArray.length; i++) {
+		var temp = allCookieArray[i].trim();
+		if(temp.indexOf(name) == 0)
+			return temp.substring(name.length, temp.length);
+	}
+	return '';
+}
+
+function cookie(cookieName, cookieValue) {
+	if(typeof cookieValue === 'undefined') {
+		return accessCookie(cookieName);
+	}
+
+	daysToExpire = 7;
+	var date = new Date();
+	date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+	document.cookie = cookieName + '=' + cookieValue + '; expires=' + date.toGMTString();
+}
+
 $(function() {
 	ymaps.ready(init);
+
+	$('#addr').val(cookie('addr'));
 
 	$('#popup__close-btn').click(function(e) {
 		$('#dialog-confirm').hide();
