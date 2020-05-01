@@ -4,12 +4,12 @@ require('geo.php');
 require('vendor/autoload.php');
 
 // TODO: turn on this code before deploy
-use GeoIp2\Database\Reader;
-
-$reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
-$record = $reader->city($_SERVER['REMOTE_ADDR']);
-$city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
-//$city = 'spb';
+//use GeoIp2\Database\Reader;
+//
+//$reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
+//$record = $reader->city($_SERVER['REMOTE_ADDR']);
+//$city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
+$city = 'spb';
 $rests = [];
 switch(@$_GET['action']) {
     case 'maps':
