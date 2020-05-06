@@ -3,13 +3,12 @@ require('coordinates.php');
 require('geo.php');
 require('vendor/autoload.php');
 
-//use GeoIp2\Database\Reader;
-//
-//$reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
-//$record = $reader->city($_SERVER['REMOTE_ADDR']);
-//$city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
-$city = 'spb';
-$rests = [];
+use GeoIp2\Database\Reader;
+
+$reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
+$record = $reader->city($_SERVER['REMOTE_ADDR']);
+$city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
+
 switch(@$_GET['action']) {
     case 'maps':
         echo json_encode($coordinates);
@@ -18,10 +17,8 @@ switch(@$_GET['action']) {
         $lat = $_GET['lat'];
         $lng = $_GET['lng'];
         $city = $_GET['city'];
-        $index = 0;
-
         foreach($coordinates as $c) {
-            $index++;
+
             if(Geo::pointInPolygon([$lat, $lng], $c['coords'])) {
                 if($city !== $c['city']) {
                     continue;
@@ -29,12 +26,9 @@ switch(@$_GET['action']) {
                 $data = [];
                 $data['cost'] = $c['cost'];
                 $data['url'] = $c['url'];
-                $data['name'] = $c['name'];
-                $data['id'] = $index;
 
                 if(isset($c['name'])) {
-//                    $msg = 'Ваш заказ будет доставлен из ресторана Italy на ' . $c['name'];
-                    $msg = 'Italy на ' . $c['name'];
+                    $msg = 'Ваш заказ будет доставлен из ресторана Italy на ' . $c['name'];
                 } else {
                     $msg = '';
                 }
@@ -61,19 +55,17 @@ switch(@$_GET['action']) {
                     $data['menu'] = $c['menu'];
                 }
                 $data['msg'] = $msg . '<br/><br/>';
-                $rests[] = $data;
+
+                echo json_encode($data);
+                exit;
             }
         }
 
-
-        if(!count($rests)) {
-            $data = [];
-            $data['msg'] = "Данный адрес не входит в зону Доставки.<br/> Пожалуйста, свяжитесь с нами по телефону " .
-                "<br/><a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a><br/><br/><br/>";
-            echo json_encode($data);
-        } else {
-            echo json_encode($rests);
-        }
+        $data = [];
+        $data['msg'] = "Данный адрес не входит в зону Доставки.<br/> Пожалуйста, свяжитесь с нами по телефону " .
+            "<br/><a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a><br/><br/><br/>";
+        echo json_encode($data);
+        exit;
         break;
     default:
         include('views/home.php');
