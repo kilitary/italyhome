@@ -57,7 +57,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("/assets/img/mainbg2.jpg");
+  background-image: url("/assets/img/mainbg.jpg");
   background-size: cover;
 }
 .section-main__title {
