@@ -57,7 +57,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("/assets/img/mainbg2.jpg");
+  background-image: url("/assets/img/mainbg.jpg");
   background-size: cover;
 }
 .section-main__title {
@@ -496,6 +496,7 @@ body {
 .popup-rests__container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: -10px -10px 0;
 }
 .popup-rests__item {
@@ -649,6 +650,7 @@ body {
   }
   .popup-rests__container {
     margin: -10px -15px 0;
+    justify-content: flex-start;
   }
   .popup-rests__item {
     min-width: 50%;
