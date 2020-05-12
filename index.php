@@ -40,7 +40,7 @@ switch(@$_GET['action']) {
 
                 if(isset($c['name'])) {
 //                    $msg = 'Ваш заказ будет доставлен из ресторана Italy на ' . $c['name'];
-                    $msg = $c['name'] . '<br/>';
+                    $msg = '<b>' . $c['name'] . '</b><br/><br/>';
                 } else {
                     $msg = '';
                 }

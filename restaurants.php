@@ -200,7 +200,7 @@ $restaurants =
             ]
         ],
         [
-            'url' => 'https://moskovsky.hitchrest.ru/',
+            'url' => 'https://medikov.hitchrest.ru/',
             'cost' => 0,
             'color' => '#1Bdf00',
             'name' => 'Ресторан Hitch на Медиков',
@@ -477,7 +477,7 @@ $restaurants =
         [
             'url' => 'https://vilensky.italydomoy.ru',
             'cost' => 0,
-            'name' => 'Ресторан Italy на Вильненском',
+            'name' => 'Ресторан Italy на Виленском',
             'min_sum' => 900,
             'color' => '#fBff00',
             'city' => 'spb',
@@ -528,7 +528,7 @@ $restaurants =
             'url' => 'https://vilensky.italydomoy.ru',
             'cost' => 300,
             'min_sum' => 900,
-            'name' => 'Ресторан Italy на Вильненском',
+            'name' => 'Ресторан Italy на Виленском',
             'color' => '#Ea0000',
             'city' => 'spb',
             'coords' => [[30.457651825759307, 59.964887542191406],
