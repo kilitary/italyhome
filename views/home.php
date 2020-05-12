@@ -50,7 +50,7 @@
         <div class="header__info">
             <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от 900₽</div>
             <div class="header__item mobile-none"><img src="/assets/img/time.svg" alt="time">ПН-ВС: 10:00-22:30</div>
-            <a href="tel:+78129002333" class="header__item phone-goal"><img src="/assets/img/phone.svg" alt="phone"><span>+7 (812) 900-23-33</span></a>
+            <a href="tel:+78129002333" class="header__item phone-goal"><img src="/assets/img/phone.svg" alt="phone"><span><?php if($city === 'spb') echo '+7 (812) 900-23-33'; else echo '+7 (800) 550-79-31'?></span></a>
         </div>
     </header>
     <main>
