@@ -229,11 +229,11 @@ $restaurants =
             ]
         ],
         [
-            'url' => 'https://apresskidomoy.ru/',
+            'url' => 'https://zagorod.italydomoy.ru/',
             'cost' => 0,
             'color' => '#9Bdf00',
-            'name' => 'Ресторан Apres ski ',
-            'logo' => 'apres.svg',
+            'name' => 'Italy загород',
+            'logo' => '1_apres.svg',
             'min_sum' => 3500,
             'city' => 'spb',
             'coords' => [[30.230831583211703, 60.10182266228549],
@@ -252,12 +252,12 @@ $restaurants =
         ],
 
         [
-            'url' => 'https://apresskidomoy.ru/',
+            'url' => 'https://zagorod.italydomoy.ru/',
             'cost' => 0,
             'color' => '#0Bdf00',
-            'name' => 'Ресторан Apres ski ',
+            'name' => 'Italy загород',
             'min_sum' => 3500,
-            'logo' => 'apres.svg',
+            'logo' => '1_apres.svg',
             'city' => 'spb',
             'coords' => [[29.75838574418922, 60.17606768617847],
                 [29.817780580615043, 60.16032900385215],
@@ -275,11 +275,11 @@ $restaurants =
         ],
 
         [
-            'url' => 'https://apresskidomoy.ru/',
+            'url' => 'https://zagorod.italydomoy.ru/',
             'cost' => 0,
             'color' => '#2Bdf00',
-            'name' => 'Ресторан Apres ski ',
-            'logo' => 'apres.svg',
+            'name' => 'Italy загород',
+            'logo' => '1_apres.svg',
             'min_sum' => 3500,
             'city' => 'spb',
             'coords' => [[30.252821001056134, 60.250196544271155],
@@ -302,11 +302,11 @@ $restaurants =
         ],
 
         [
-            'url' => 'https://apresskidomoy.ru/',
+            'url' => 'https://zagorod.italydomoy.ru/',
             'cost' => 0,
             'color' => '#1Bdf00',
-            'name' => 'Ресторан Apres ski ',
-            'logo' => 'apres.svg',
+            'name' => 'Italy загород',
+            'logo' => '1_apres.svg',
             'min_sum' => 2000,
             'city' => 'spb',
             'coords' => [[30.224165983725495, 60.17960583657094],
