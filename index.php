@@ -82,7 +82,11 @@ switch(@$_GET['action']) {
         if(!count($rests)) {
             $data = [];
             $data['msg'] = "<div style='text-align: center'>Данный адрес не входит в зону Доставки.<br/> Пожалуйста, свяжитесь с нами по телефону " .
-                "<br/><a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a></div>";
+                "<br/>";
+            if($city=='spb')
+                $data['msg'] .= "<a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a></div>";
+            else
+                $data['msg'] .= "<a  style='color:red' href='tel:8-800-550-79-31'>8 (800) 550-79-31</a></div>";
             $data['error'] = true;
             echo json_encode($data);
         } else {
