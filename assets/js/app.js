@@ -44,7 +44,6 @@ function gotoRestaurant(obj) {
     let url = $(obj).data('url');
     const goal = restaurantUrl.match(/https?:\/\/(.+)$/)[1];
     ym(62026936, 'reachGoal', goal);
-    gtag('event', goal);
     document.location.href = url;
 }
 
@@ -187,11 +186,9 @@ $(function() {
     // Metrika и gtag
     $('.search-button').click(() => {
         ym(62026936, 'reachGoal', 'check_address');
-        gtag('event', 'check_address');
     });
     $('.phone-goal').click(() => {
         ym(62026936, 'reachGoal', 'header_phone');
-        gtag('event', 'header_phone');
     });
 
     //slick slider
