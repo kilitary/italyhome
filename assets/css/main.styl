@@ -19,7 +19,7 @@ $borderColor = #D9D9DE
 
 //Mixins
 h1() {
-  font-family: Alice
+  font-family: Gotham Pro
   font-style: normal
   font-weight: normal
   font-size: 48px
@@ -69,23 +69,30 @@ body
   width: 100%
   height: 770px
   display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column
-  background-image: url("/assets/img/mainbg2.jpg")
-  background-size: cover
+  &__left
+    width: 50%
+    overflow: hidden;
+    img
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+  &__right
+    width: 50%
+    padding-left: 86px
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    justify-content: center
   &__title
     h1()
-    text-align: center
-    color: #ffffff
-    margin-bottom: 30px
+    margin-bottom: 40px
   &__choice
     font-size: 24px
-    color: #ffffff
-    margin-bottom: 60px
+    margin-bottom: 64px
   &__city-item
     font-size: 24px
-    color: #c5c5c5
+    color: #909090
     border: none;
     border-bottom: 2px solid transparent
     background-color: transparent;
@@ -357,10 +364,10 @@ body
   background: rgba(0, 0, 0, 0.5)
 
 .footer
-  background-color: #000
-  color: #fff
-  height: 280px
-  padding: 80px 0
+  background-color: #000;
+  color: #fff;
+  height: 280px;
+  padding: 80px 0 0;
   &__heading
     font-family: Alice
     font-style: normal
@@ -370,21 +377,31 @@ body
     margin-bottom: 20px
   &__down
     display: flex
-    justify-content: center
-    margin-top: 60px
+    justify-content: space-between;
+    width: 1200px;
+    max-width: 100%;
+    margin: 60px auto 0;
+    & > img
+      display: block;
+      height: fit-content;
   &__upper
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
     display: flex
     justify-content: center
-    & > *
-      width: calc(100% / 3 - 200px)
-      max-width: 100%
-      margin-right: 60px
-      &:last-child
-        margin-right: 0
   &__logos
+    width: 100%
+    display: flex
+    justify-content: space-between
     img
-      &:first-child
-        margin-right: 40px
+      display: block;
+      height: 47px;
+      width: auto;
+      &:nth-child(5),
+      &:nth-child(6)
+        height: 66px;
+        
   &__addresses
     ul
       list-style: none
@@ -475,7 +492,6 @@ body
 
 
 
-
 // mobile
 @media only screen and (max-width: 768px)
   .mobile-none
@@ -490,21 +506,46 @@ body
       margin-right: 15px
 
   .section-main
-    height: auto !important
-    min-height: calc(100vh - 60px)
+    position: relative;
+    height: auto !important;
+    min-height: calc(100vh - 60px);
+    &__left
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      background-image: url(/assets/img/main-section-img-mob.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: right bottom;
+      z-index: -1;
+      img
+        display: none
+    &__right
+      width: 100%;
+      padding: 0 15px;
+      justify-content: flex-end;
+      padding-bottom: 90px;
     &__title
-      margin-bottom: 50px
-    &__search
-      padding: 0 15px
-      box-sizing: border-box
+      font-family: Arial;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    &__city-item
+      font-size: 16px;
+    &__choice
+      text-align: center
+      margin-bottom: 30px
     &__input
-      display: block
-      margin-bottom: 20px
-      padding: 20px
+      display: block;
+      margin-bottom: 20px;
+      padding: 20px;
     &__button
-      position: relative
-      display: block
-      width: 100%
+      position: relative;
+      display: block;
+      width: 100%;
 
   .section-zone
     height: auto
@@ -529,28 +570,24 @@ body
       display: flex;
 
   .footer
-    display: flex
-    justify-content: center
-    height: 156px
-    padding: 0 0 20px 0
-    &__down
-      display: flex
+    height: auto;
+    padding: 20px;
     &__upper
-      padding: 0 15px
+      padding: 0
       justify-content: space-between
       align-items: center
       width: 100%
-      & > *
-        width: auto
-        margin-right: 0
+    &__down
+      margin: 30px auto 0;
+    &__social
+      margin: 0 auto;
     &__logos
+      flex-wrap: wrap;
+      justify-content: center;
       img
-        height: auto
-        &:first-child
-          width: 68px
-          margin-right: 24px
-        &:last-child
-          width: 93px
+        height: auto;
+        width: 30%;
+        padding: 20px;
   .popup
     max-width: 100%
     padding: 15px
