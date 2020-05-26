@@ -36,6 +36,13 @@
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WV2742T');</script>
     <!-- End Google Tag Manager -->
+
+    <script type="text/javascript">
+        var __cs = __cs || [];
+        __cs.push(["setCsAccount", "uZKXh7sfZV_9Qh0vPQObVYICtQg_kDbO"]);
+    </script>
+    <script type="text/javascript" async src="https://app.comagic.ru/static/cs.min.js"></script>
+
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -80,7 +87,7 @@
                 </div>
             </div>
             <div class="section-zone__image mobile-none">
-                <img src="/assets/img/1stpet.jpg" alt="map">
+                <img src="/assets/img/rightmap.png" alt="map">
                 <div id="map" style="width:0px;height:0px"></div>
             </div>
         </section>
