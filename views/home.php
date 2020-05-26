@@ -53,20 +53,23 @@
     </header>
     <main>
         <section class="section-main">
-            <h2 class="section-main__title">ДОСТАВКА ИЗ РЕСТОРАНОВ ITALY GROUP</h2>
-            <h2 class="section-main__title">Проверьте возможность <br> доставки по вашему адресу</h2>
-            <!--
-            Кнопки переключения города  -->
-            <div class="section-main__choice">
-                <button class="section-main__city-item <?php if($city === 'spb') echo 'active' ?>" data-id="spb">Санкт-Петербург</button>
-                |
-                <button class="section-main__city-item <?php if($city === 'msk') echo 'active' ?>" data-id="msk">Москва</button>
+            <div class="section-main__left">
+                <img src="/assets/img/main-section-img.jpg" alt="image">
             </div>
-            <form class="section-main__search">
-                <input type="text" id="addr" class="section-main__input search-input" placeholder="Введите адрес доставки ">
-                <button type="submit" class="section-main__button search-button" onclick="searchButton()">Проверить адрес
-                </button>
-            </form>
+            <div class="section-main__right">
+                <h2 class="section-main__title">Проверьте <br> возможность доставки <br>  по вашему адресу</h2>
+                                <!--
+                Кнопки переключения города  -->
+                <div class="section-main__choice">
+                    <button class="section-main__city-item <?php if($city==='spb') echo 'active'?>" data-id="spb">Санкт-Петербург</button> |
+                    <button class="section-main__city-item <?php if($city==='msk') echo 'active'?>" data-id="msk">Москва</button>
+                </div>
+                <form class="section-main__search">
+                    <input type="text" id="addr" class="section-main__input search-input" placeholder="Введите адрес доставки ">
+                    <button type="submit" class="section-main__button search-button" onclick="searchButton()">Проверить адрес
+                    </button>
+                </form>
+            </div>
         </section>
         <section class="section-zone">
             <div class="section-zone__text-block">
@@ -221,18 +224,16 @@
     <footer class="footer">
         <div class="footer__upper">
             <div class="footer__logos">
-                <img src="/assets/img/italydomoy-logo.svg" alt="italydomoy">
                 <img src="/assets/img/italy-logo.svg" alt="italy">
+                <img src="/assets/img/chemi-logo.svg" alt="chemi">
+                <img src="/assets/img/hitch-logo.svg" alt="hitch">
+                <img src="/assets/img/italiani-logo.svg" alt="italiani">
+                <img src="/assets/img/italyza-logo.svg" alt="italy загород">
+                <img src="/assets/img/italydo-logo.svg" alt="italydomoy">
             </div>
-            <div class="footer__addresses mobile-none">
-                <h4 class="footer__heading">Адреса ресторанов</h4>
-                <ul>
-                    <li>СПб, пл. Чернышевского, 11</li>
-                    <li>СПб, Большая Морская ул., 14</li>
-                    <li>СПб, пр. Энгельса, 27</li>
-                    <li>СПб, Виленский пер., 15</li>
-                </ul>
-            </div>
+        </div>
+        <div class="footer__down">
+            <img class="mobile-none" src="/assets/img/cards.png" alt="visa mastercard">
             <div class="footer__social">
                 <h4 class="footer__heading mobile-none">Следите за нами</h4>
                 <div class="footer__social-items">
@@ -255,9 +256,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="footer__down mobile-none">
-            <img src="/assets/img/cards.png" alt="visa mastercard">
         </div>
     </footer>
     <div class="popup-rests">
