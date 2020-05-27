@@ -1,15 +1,13 @@
 <?php
-
 use GeoIp2\Database\Reader;
 
 require('restaurants.php');
 require('geo.php');
 require('vendor/autoload.php');
-// TODO: turn on this code before deploy
 
 if(isset($_GET['city'])) {
     $city = $_GET['city'];
-} else {
+} elseif(is_file('/usr/share/GeoIP/GeoLite2-City.mmdb')) {
 
     $reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
     $record = $reader->city($_SERVER['REMOTE_ADDR']);
@@ -84,7 +82,7 @@ switch(@$_GET['action']) {
             $data = [];
             $data['msg'] = "<div style='text-align: center'>Данный адрес не входит в зону Доставки.<br/> Пожалуйста, свяжитесь с нами по телефону " .
                 "<br/>";
-            if($city=='spb')
+            if($city == 'spb')
                 $data['msg'] .= "<a  style='color:red' href='tel:8-812-900-23-33'>8 (812) 900-23-33</a></div>";
             else
                 $data['msg'] .= "<a  style='color:red' href='tel:8-800-550-79-31'>8 (800) 550-79-31</a></div>";
