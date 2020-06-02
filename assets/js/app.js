@@ -1,5 +1,7 @@
 var myMap;
 var restaurantUrl;
+let deliveryPrices = {'spb': 900, 'msk': 1000};
+
 
 function init() {
     // Создание карты.
@@ -245,6 +247,7 @@ $(function() {
         const phone = phoneNumbers[city];
         $('.phone-goal').attr('href', phone);
         $('.phone-goal span').text(phone);
+        $('#delivery').html(deliveryPrices[city]);
 
 
     });
