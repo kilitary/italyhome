@@ -146,12 +146,21 @@ body {
   height: 849px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
-.section-zone__text-block {
-  width: 410px;
+.section-zone__container {
+  width: 1200px;
   max-width: 100%;
-  margin-right: 140px;
+  margin: 0 auto;
+  display: flex;
+}
+.section-zone__select-box {
+  width: 42%;
+}
+.section-zone__map {
+  width: calc(58% - 90px);
+  margin-left: 90px;
+  box-shadow: 0px 4px 20px rgba(205,179,153,0.5);
 }
 .section-zone__title {
   font-family: Gotham Pro;
@@ -167,21 +176,56 @@ body {
     font-size: 26px;
   }
 }
-.section-zone__text {
-  font-family: Gotham Pro;
-  font-style: normal;
-  font-weight: normal;
+.section-zone__description {
   font-size: 16px;
-  line-height: 150%;
-  color: #000;
+  color: #76767a;
 }
-.section-zone__image {
-  max-width: 50%;
+.select-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px -20px 0;
 }
-.section-zone__image img {
-  display: block;
-  box-shadow: 0px 4px 20px rgba(205,179,153,0.5);
-  width: 100%;
+.select-box__item {
+  min-width: 160px;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 calc(100% / 3 - 20px);
+  margin: 10px;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid #d9d9de;
+  border-radius: 6px;
+  padding: 20px;
+  justify-content: space-between;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.5s;
+}
+.select-box__item:hover,
+.select-box__item.active {
+  opacity: 1;
+  border-color: #e5271b;
+}
+.select-box__item:nth-child(1) .select-box__img {
+  width: 98px;
+  height: auto;
+}
+.select-box__item:nth-child(2) .select-box__img {
+  width: 103px;
+  height: auto;
+}
+.select-box__item:nth-child(3) .select-box__img {
+  width: 122px;
+  height: auto;
+}
+.select-box__img {
+  width: 78px;
+  height: auto;
+}
+.select-box__title {
+  color: #333;
+  font-size: 16px;
 }
 .section-cooking {
   position: relative;
@@ -716,6 +760,22 @@ body {
   }
   .popup-rests__btn {
     display: none;
+  }
+  .section-zone__container {
+    flex-direction: column;
+  }
+  .section-zone__select-box {
+    width: 100%;
+    padding: 80px 15px 0;
+    box-sizing: border-box;
+  }
+  .section-zone__map {
+    width: 100%;
+    height: 260px;
+    margin: 40px 0 80px;
+  }
+  .select-box {
+    margin: 40px -10px 0;
   }
 }
 @media only screen and (max-width: 1000px) {
