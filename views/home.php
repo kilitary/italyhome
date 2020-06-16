@@ -79,16 +79,39 @@
             </div>
         </section>
         <section class="section-zone">
-            <div class="section-zone__text-block">
-                <h2 class="section-zone__title">Зоны доставки из ресторанов ITALY GROUP.</h2>
-                <div class="section-zone__text">
-                    Доставка еды из ресторанов в Санкт-Петербурге. Традиционная итальянская пицца Italy, грузинская кухня Чеми, стейки и бургеры от HITCH,
-                    бельгийская классика BRUXX - так же вкусно как в ресторане, только дома!
+            <div class="section-zone__container">
+                <div class="section-zone__select-box">
+                    <h2 class="section-zone__title">Зоны доставки из ресторанов Italy:</h2>
+                    <div class="section-zone__description">Выберите ресторан, чтобы узнать о зоне доставки</div>
+                    <div class="select-box">
+                        <div class="select-box__item active">
+                            <img src="/assets/img/logos/chemi.svg" alt="chemi" class="select-box__img">
+                            <div class="select-box__title">Чеми</div>
+                        </div>
+                        <div class="select-box__item">
+                            <img src="/assets/img/logos/hitch.svg" alt="HITCH" class="select-box__img">
+                            <div class="select-box__title">HITCH</div>
+                        </div>
+                        <div class="select-box__item">
+                            <img src="/assets/img/logos/italiani.svg" alt="Italiani" class="select-box__img">
+                            <div class="select-box__title">Italiani</div>
+                        </div>
+                        <div class="select-box__item">
+                            <img src="/assets/img/logos/def.svg" alt="Italy" class="select-box__img">
+                            <div class="select-box__title">Italy</div>
+                        </div>
+                        <div class="select-box__item">
+                            <img src="/assets/img/logos/italyzagorod.svg" alt="Italy Загород" class="select-box__img">
+                            <div class="select-box__title">Italy Загород</div>
+                        </div>
+                        <div class="select-box__item">
+                            <img src="/assets/img/logos/def.svg" alt="Italy (Москва)" class="select-box__img">
+                            <div class="select-box__title">Italy (Москва)</div>
+                        </div>
+                    </div>
                 </div>
+                <div class="section-zone__map">
             </div>
-            <div class="section-zone__image mobile-none">
-                <img src="/assets/img/rightmap.png" alt="map">
-                <div id="map" style="width:0px;height:0px"></div>
             </div>
         </section>
         <section class="section-cooking mobile-none">
