@@ -252,4 +252,12 @@ $(function() {
 
     });
 
+
+    //Логика переключения ресторанов во второй секции
+    const selectItems = $('.select-box__item')
+    selectItems.on('click', function () {
+        selectItems.removeClass('active')
+        $(this).addClass('active')
+    })
+
 });
