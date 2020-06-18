@@ -1,7 +1,40 @@
-var myMap;
-var restaurantUrl;
+let myMap;
+let restaurantUrl;
 let deliveryPrices = {'spb': 900, 'msk': 1000};
+let centers = {'spb': [59.939095, 30.315868], 'msk': [55.7522200, 37.6155600]};
 
+function addRest(zones) {
+    var regionsNumber = 0;
+    myMap.geoObjects.removeAll();
+    $.each(zones, $.proxy(function(i, el) {
+        console.log('city', el.city);
+        myMap.setCenter(centers[el.city], 10);
+        $.each(el.coords, $.proxy(function(j, region) {
+            var r = region[0];
+            region[0] = region[1];
+            region[1] = r;
+
+            regionsNumber++;
+
+            el.coords[j] = region;
+        }, this));
+
+        var myPolygon = new ymaps.Polygon(
+            [el.coords],
+            {
+                hintContent: 'Зона доставки на ' + el.name + ' за ' + el.cost + ' рублей.' + ' Минимальная сумма: ' + el.min_sum + ' Время доставки: ' + el.delivery_time
+            },
+            {
+                fillColor: el.color,
+                fillOpacity: 0.6,
+                strokeColor: el.color,
+                strokeWidth: 0,
+                strokeOpacity: 1
+            }
+        );
+        myMap.geoObjects.add(myPolygon);
+    }));
+}
 
 function init() {
     // Создание карты.
@@ -9,36 +42,10 @@ function init() {
         center: [59.939095, 30.315868],
         zoom: 10
     });
-    $.get('/?action=maps', function(zones) {
-        zones = JSON.parse(zones);
-        var regionsNumber = 0;
-        $.each(zones, $.proxy(function(i, el) {
-            $.each(el.coords, $.proxy(function(j, region) {
-                var r = region[0];
-                region[0] = region[1];
-                region[1] = r;
-
-                regionsNumber++;
-
-                el.coords[j] = region;
-            }, this));
-
-            var myPolygon = new ymaps.Polygon(
-                [el.coords],
-                {
-                    hintContent: 'Зона доставки на ' + el.name + ' за ' + el.cost + ' рублей.' + ' Минимальная сумма: ' + el.min_sum + ' Время доставки: ' + el.delivery_time
-                },
-                {
-                    fillColor: el.color,
-                    fillOpacity: 0.6,
-                    strokeColor: el.color,
-                    strokeWidth: 0,
-                    strokeOpacity: 1
-                }
-            );
-            myMap.geoObjects.add(myPolygon);
-        }));
-    });
+    // $.get('/?action=maps', function(zones) {
+    //     zones = JSON.parse(zones);
+    //     addRest(zones);
+    // });
 }
 
 function gotoRestaurant(obj) {
@@ -255,9 +262,16 @@ $(function() {
 
     //Логика переключения ресторанов во второй секции
     const selectItems = $('.select-box__item')
-    selectItems.on('click', function () {
+    selectItems.on('click', function() {
         selectItems.removeClass('active')
         $(this).addClass('active')
+        let restName = $(this).data('name');
+        console.log('rest', restName);
+        $.get('?action=zones', {name: restName}, function(data) {
+            data = JSON.parse(data);
+            console.log('zones', data);
+            addRest(data);
+        });
     })
 
 });

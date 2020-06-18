@@ -1,17 +1,16 @@
 <?php
-use GeoIp2\Database\Reader;
-
 require('restaurants.php');
 require('geo.php');
 require('vendor/autoload.php');
 
+// TODO: turn on this code before deploy
+//use GeoIp2\Database\Reader;
+//
+//$reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
+//$record = $reader->city($_SERVER['REMOTE_ADDR']);
+//$city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
 if(isset($_GET['city'])) {
     $city = $_GET['city'];
-} elseif(is_file('/usr/share/GeoIP/GeoLite2-City.mmdb')) {
-
-    $reader = new Reader('/usr/share/GeoIP/GeoLite2-City.mmdb');
-    $record = $reader->city($_SERVER['REMOTE_ADDR']);
-    $city = $record->city->name === 'St Petersburg' ? 'spb' : 'msk';
 } else {
     $city = 'spb';
 }
@@ -94,7 +93,37 @@ switch(@$_GET['action']) {
             echo json_encode($rests);
         }
         break;
+    case 'zones':
+        $rests = [];
+        foreach($restaurants as $r) {
+            if(isset($r['skip_on_main']) && $r['skip_on_main']) {
+                continue;
+            }
+            $rests[$r['name']][] = [
+                'name' => $r['name'],
+                'logo' => isset($r['logo']) ? $r['logo'] : 'def.png',
+                'coords' => $r['coords'],
+                'cost' => isset($r['cost']) ? $r['cost'] : 0,
+                'min_sum' => isset($r['min_sum']) ? $r['min_sum'] : 0,
+                'delivery_time' => isset($r['delivery_time']) ? $r['delivery_time'] : 0,
+                'city' => $r['city']
+            ];
+        }
+        $zones = $rests[$_GET['name']];
+        echo json_encode($zones);
+        break;
     default:
+        $rests = [];
+        foreach($restaurants as $r) {
+            if(isset($r['skip_on_main']) && $r['skip_on_main']) {
+                continue;
+            }
+            $rests[$r['name']] = [
+                'name' => $r['name'],
+                'logo' => isset($r['logo']) ? $r['logo'] : 'def.png',
+                'city' => $r['city']
+            ];
+        }
         include('views/home.php');
         break;
 }

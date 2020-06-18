@@ -9,20 +9,20 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
-		(function(m, e, t, r, i, k, a) {
-			m[i] = m[i] || function() {
-				(m[i].a = m[i].a || []).push(arguments);
-			};
-			m[i].l = 1 * new Date();
-			k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
-		})
-		(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments);
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a);
+        })
+        (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
-		ym(62026936, 'init', {
-			clickmap: true,
-			trackLinks: true,
-			accurateTrackBounce: true
-		});
+        ym(62026936, 'init', {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true
+        });
     </script>
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/62026936" style="position:absolute; left:-9999px;" alt=""/></div>
@@ -30,11 +30,19 @@
     <!-- /Yandex.Metrika counter -->
 
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-WV2742T');</script>
+    <script>(function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WV2742T');</script>
     <!-- End Google Tag Manager -->
 
     <script type="text/javascript">
@@ -46,16 +54,21 @@
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WV2742T"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WV2742T"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="wrapper">
     <header class="header">
         <a href="/" class="header__logo"><img src="/assets/img/logo.svg" alt="logo"></a>
         <div class="header__info">
-            <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от&nbsp;<span id="delivery">900</span>₽</div>
+            <div class="header__item mobile-none"><img src="/assets/img/sum.svg" alt="sum">Доставка от&nbsp;<span
+                        id="delivery">900</span>₽
+            </div>
             <div class="header__item mobile-none"><img src="/assets/img/time.svg" alt="time">ПН-ВС: 10:00-22:30</div>
-            <a href="tel:+78129002333" class="header__item phone-goal"><img src="/assets/img/phone.svg" alt="phone"><span><?php if($city === 'spb') echo '+7 (812) 900-23-33'; else echo '+7 (800) 550-79-31'?></span></a>
+            <a href="tel:+78129002333" class="header__item phone-goal"><img src="/assets/img/phone.svg"
+                                                                            alt="phone"><span><?php if($city === 'spb') echo '+7 (812) 900-23-33'; else echo '+7 (800) 550-79-31' ?></span></a>
         </div>
     </header>
     <main>
@@ -64,16 +77,23 @@
                 <img src="/assets/img/main-section-img.jpg" alt="image">
             </div>
             <div class="section-main__right">
-                <h2 class="section-main__title">Проверьте <br> возможность доставки <br>  по вашему адресу</h2>
-                                <!--
-                Кнопки переключения города  -->
+                <h2 class="section-main__title">Проверьте <br> возможность доставки <br> по вашему адресу</h2>
+                <!--
+Кнопки переключения города  -->
                 <div class="section-main__choice">
-                    <button class="section-main__city-item <?php if($city==='spb') echo 'active'?>" data-id="spb">Санкт-Петербург</button> |
-                    <button class="section-main__city-item <?php if($city==='msk') echo 'active'?>" data-id="msk">Москва</button>
+                    <button class="section-main__city-item <?php if($city === 'spb') echo 'active' ?>" data-id="spb">
+                        Санкт-Петербург
+                    </button>
+                    |
+                    <button class="section-main__city-item <?php if($city === 'msk') echo 'active' ?>" data-id="msk">
+                        Москва
+                    </button>
                 </div>
                 <form class="section-main__search">
-                    <input type="text" id="addr" class="section-main__input search-input" placeholder="Введите адрес доставки ">
-                    <button type="submit" class="section-main__button search-button" onclick="searchButton()">Проверить адрес
+                    <input type="text" id="addr" class="section-main__input search-input"
+                           placeholder="Введите адрес доставки ">
+                    <button type="submit" class="section-main__button search-button" onclick="searchButton()">Проверить
+                        адрес
                     </button>
                 </form>
             </div>
@@ -84,34 +104,22 @@
                     <h2 class="section-zone__title">Зоны доставки из ресторанов Italy:</h2>
                     <div class="section-zone__description">Выберите ресторан, чтобы узнать о зоне доставки</div>
                     <div class="select-box">
-                        <div class="select-box__item active">
-                            <img src="/assets/img/logos/chemi.svg" alt="chemi" class="select-box__img">
-                            <div class="select-box__title">Чеми</div>
-                        </div>
-                        <div class="select-box__item">
-                            <img src="/assets/img/logos/hitch.svg" alt="HITCH" class="select-box__img">
-                            <div class="select-box__title">HITCH</div>
-                        </div>
-                        <div class="select-box__item">
-                            <img src="/assets/img/logos/italiani.svg" alt="Italiani" class="select-box__img">
-                            <div class="select-box__title">Italiani</div>
-                        </div>
-                        <div class="select-box__item">
-                            <img src="/assets/img/logos/def.svg" alt="Italy" class="select-box__img">
-                            <div class="select-box__title">Italy</div>
-                        </div>
-                        <div class="select-box__item">
-                            <img src="/assets/img/logos/italyzagorod.svg" alt="Italy Загород" class="select-box__img">
-                            <div class="select-box__title">Italy Загород</div>
-                        </div>
-                        <div class="select-box__item">
-                            <img src="/assets/img/logos/def.svg" alt="Italy (Москва)" class="select-box__img">
-                            <div class="select-box__title">Italy (Москва)</div>
-                        </div>
+                        <?php
+                        foreach($rests as $r) {
+                            ?>
+                            <div class="select-box__item " data-name="<?= $r['name'] ?>">
+                                <img src="/assets/img/logos/<?= isset($r['logo']) ? $r['logo'] : 'def.svg' ?>"
+                                     alt="chemi" class="select-box__img">
+                                <div class="select-box__title"><?= $r['name'] ?></div>
+                            </div>
+                            <?php
+                        }
+                        ?>
+
                     </div>
                 </div>
-                <div class="section-zone__map">
-            </div>
+                <div class="section-zone__map" id="map">
+                </div>
             </div>
         </section>
         <section class="section-cooking mobile-none">
@@ -121,7 +129,8 @@
             <div class="section-cooking__container">
                 <h2 class="section-cooking__title">Ресторан итальянской кухни Italy</h2>
                 <div class="section-cooking__text">
-                    ITALY GROUP - это вкусоцентричные заведения, где страсть к еде - главное правило, забота о гостях - основа сервиса,
+                    ITALY GROUP - это вкусоцентричные заведения, где страсть к еде - главное правило, забота о гостях -
+                    основа сервиса,
                     а кухня занимает центральное место в каждой концепции.
                 </div>
             </div>
@@ -152,7 +161,8 @@
                         <div class="slider__name">Евгений Энгельке</div>
                         <div class="slider__text mobile-none">
                             Евгений Энгельке — человек, который отвечает за качество и вкус во всей
-                            сети ресторанов Italy. Наш бренд-шеф. Благодаря ему мы каждый день кормим сотни довольных гостей
+                            сети ресторанов Italy. Наш бренд-шеф. Благодаря ему мы каждый день кормим сотни довольных
+                            гостей
                             и доставляем вам домой блюда,
                             приготовленные по классическим итальянским рецептам.
                         </div>
@@ -270,18 +280,18 @@
                     <a href="https://www.facebook.com/italy.restaurants/" class="footer__social-item">
                         <svg width="9" height="20" viewBox="0 0 9 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M1.881 19.048H5.836V9.53H8.506L8.852 6.168H5.836V4.191C5.836 3.45 6.329 3.276 6.675 3.276H8.803V0.012L5.873 0C2.62 0 1.881 2.434 1.881 3.992V6.169H0V9.531H1.881V19.048Z"
-                                fill="#FAF7F5"/>
+                                    d="M1.881 19.048H5.836V9.53H8.506L8.852 6.168H5.836V4.191C5.836 3.45 6.329 3.276 6.675 3.276H8.803V0.012L5.873 0C2.62 0 1.881 2.434 1.881 3.992V6.169H0V9.531H1.881V19.048Z"
+                                    fill="#FAF7F5"/>
                         </svg>
                     </a>
                     <a href="https://www.instagram.com/italy.restaurants" class="footer__social-item">
                         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M14.042 0H5.958C2.673 0 0 2.708 0 6.038V14.231C0 17.561 2.673 20.27 5.958 20.27H14.042C17.327 20.27 20 17.56 20 14.231V6.038C20 2.708 17.327 0 14.042 0ZM17.988 14.231C17.988 16.44 16.221 18.231 14.042 18.231H5.958C3.778 18.231 2.012 16.44 2.012 14.231V6.038C2.012 3.829 3.779 2.038 5.958 2.038H14.042C16.222 2.038 17.988 3.829 17.988 6.038V14.231Z"
-                                fill="#FAF7F5"/>
+                                    d="M14.042 0H5.958C2.673 0 0 2.708 0 6.038V14.231C0 17.561 2.673 20.27 5.958 20.27H14.042C17.327 20.27 20 17.56 20 14.231V6.038C20 2.708 17.327 0 14.042 0ZM17.988 14.231C17.988 16.44 16.221 18.231 14.042 18.231H5.958C3.778 18.231 2.012 16.44 2.012 14.231V6.038C2.012 3.829 3.779 2.038 5.958 2.038H14.042C16.222 2.038 17.988 3.829 17.988 6.038V14.231Z"
+                                    fill="#FAF7F5"/>
                             <path
-                                d="M9.9999 4.89205C7.1479 4.89205 4.8269 7.24405 4.8269 10.135C4.8269 13.025 7.1469 15.378 9.9999 15.378C12.8519 15.378 15.1729 13.026 15.1729 10.135C15.1729 7.24405 12.8529 4.89205 9.9999 4.89205ZM9.9999 13.339C8.2539 13.339 6.8399 11.904 6.8399 10.135C6.8399 8.36505 8.2539 6.93105 9.9999 6.93105C11.7449 6.93105 13.1599 8.36605 13.1599 10.135C13.1599 11.905 11.7449 13.339 9.9999 13.339ZM15.1829 6.18805C15.8669 6.18805 16.4229 5.62505 16.4229 4.93205C16.4229 4.23805 15.8669 3.67505 15.1829 3.67505C14.4979 3.67505 13.9429 4.23805 13.9429 4.93205C13.9429 5.62505 14.4979 6.18805 15.1829 6.18805Z"
-                                fill="#FAF7F5"/>
+                                    d="M9.9999 4.89205C7.1479 4.89205 4.8269 7.24405 4.8269 10.135C4.8269 13.025 7.1469 15.378 9.9999 15.378C12.8519 15.378 15.1729 13.026 15.1729 10.135C15.1729 7.24405 12.8529 4.89205 9.9999 4.89205ZM9.9999 13.339C8.2539 13.339 6.8399 11.904 6.8399 10.135C6.8399 8.36505 8.2539 6.93105 9.9999 6.93105C11.7449 6.93105 13.1599 8.36605 13.1599 10.135C13.1599 11.905 11.7449 13.339 9.9999 13.339ZM15.1829 6.18805C15.8669 6.18805 16.4229 5.62505 16.4229 4.93205C16.4229 4.23805 15.8669 3.67505 15.1829 3.67505C14.4979 3.67505 13.9429 4.23805 13.9429 4.93205C13.9429 5.62505 14.4979 6.18805 15.1829 6.18805Z"
+                                    fill="#FAF7F5"/>
                         </svg>
                     </a>
                 </div>
@@ -301,15 +311,17 @@
     </div>
     <div class="overlay"></div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
         crossorigin="anonymous"></script>
 <script src="https://api-maps.yandex.ru/2.1/?apikey=7cedbefe-b532-46c0-bd05-3abdf86c0948&lang=ru_RU"
         type="text/javascript">
 </script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
-	var city = '<?php echo $city?>';
+    var city = '<?php echo $city?>';
 </script>
 <script src="assets/js/app.js"></script>
 </body>
