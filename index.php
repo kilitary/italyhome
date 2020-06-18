@@ -99,8 +99,8 @@ switch(@$_GET['action']) {
             if(isset($r['skip_on_main']) && $r['skip_on_main']) {
                 continue;
             }
-            $rests[$r['name']][] = [
-                'name' => $r['name'],
+            $rests[$r['key']][] = [
+                'name' => $r['globalname'],
                 'logo' => isset($r['logo']) ? $r['logo'] : 'def.png',
                 'coords' => $r['coords'],
                 'cost' => isset($r['cost']) ? $r['cost'] : 0,
@@ -118,8 +118,9 @@ switch(@$_GET['action']) {
             if(isset($r['skip_on_main']) && $r['skip_on_main']) {
                 continue;
             }
-            $rests[$r['name']] = [
-                'name' => $r['name'],
+            $rests[$r['key']] = [
+                'key' => $r['key'],
+                'name' => $r['globalname'],
                 'logo' => isset($r['logo']) ? $r['logo'] : 'def.png',
                 'city' => $r['city']
             ];

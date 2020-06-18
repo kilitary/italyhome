@@ -107,7 +107,7 @@
                         <?php
                         foreach($rests as $r) {
                             ?>
-                            <div class="select-box__item " data-name="<?= $r['name'] ?>">
+                            <div class="select-box__item " data-name="<?= $r['key'] ?>">
                                 <img src="/assets/img/logos/<?= isset($r['logo']) ? $r['logo'] : 'def.svg' ?>"
                                      alt="chemi" class="select-box__img">
                                 <div class="select-box__title"><?= $r['name'] ?></div>
