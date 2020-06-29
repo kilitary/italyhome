@@ -95,6 +95,7 @@ switch(@$_GET['action']) {
         break;
     case 'zones':
         $rests = [];
+
         foreach($restaurants as $r) {
             if(isset($r['skip_on_main']) && $r['skip_on_main']) {
                 continue;
@@ -114,6 +115,8 @@ switch(@$_GET['action']) {
         break;
     default:
         $rests = [];
+        $restaurants = collect($restaurants)->sortBy('sort')->toArray();
+        //dd($restaurants);
         foreach($restaurants as $r) {
             if(isset($r['skip_on_main']) && $r['skip_on_main']) {
                 continue;
