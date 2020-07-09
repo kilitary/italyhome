@@ -1,3 +1,4 @@
+
 let myMap;
 let restaurantUrl;
 let deliveryPrices = {'spb': 900, 'msk': 1000};
